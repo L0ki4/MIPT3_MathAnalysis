@@ -1,0 +1,165 @@
+
+
+\section{Понятие условного экстремума}
+\paragraph{Пример}
+$\omega=x^2+y^2,	$ при условии $x+y-1=0.$\\
+$y=1-x, \omega = x^2+(1-x)^2=2x^2-2x+1$\\
+$\omega'=2(2x+1)=0 \Rightarrow x_0=-\frac 1 2$
+$\omega''=x>0 \rightarrow x_0$ - локальный минимум $\omega=\omega(x)$\\
+$M_0(\frac 1 2; \frac 1 2)$ - т. условного минимума $\omega=x^2+y^2$ при $x+y-1=0; \omega=\frac 1 2$. Абсолютный экстремум $\omega=0$ в (0;0)
+\subsection{Общая постановка задачи}
+$\omega=f(x,y), \; x\in\mathbb{E}^m, \; y\in\mathbb{E}^n; \; x=(x_1,x_2,\dots, x_m), \; y=(y_1,\dots, y_n);$
+\begin{equation}\label{connect}
+	\Phi_1(x,y)=0, \; \Phi_2(x,y)=0, \; \dots \Phi_n(x,y)=0;\; \text{  - условия связи}
+\end{equation}
+Условия связи \ref{connect} в пространстве $\mathbb{E}^{m+n}$ определяют множество $\mathbb{X}:$ $$\mathbb{X}=\{(x,y): \Phi_1(x,y)=0, \; \Phi_2(x,y)=0, \; \dots \Phi_n(x,y)=0 \};\; dim \mathbb{X} = m$$
+\begin{determenition}[Точка условного минимума]
+	точка $M_0(x^0, y^0): \Phi_i(x^0, y^0)=0, \forall i=\overline{1,n},$ называется точкой лок. min [max] функции $\omega=f(x,y),$ при условиях связи \ref{connect}, если 
+	$$\exists B_\varepsilon (M_0):\; \forall (x,y)\in B_\varepsilon (M_0) \cap \mathbb{X} \Rightarrow f(x^0, y^0)<f(x,y) \; [f(x^0, y^0)>f(x,y)]$$
+\end{determenition}
+\subsection{Необходимые условия существования лок. экстремума}
+$M_0(x^0, y^0): \Phi_i(x^0, y^0) = 0, i =\overline{1,n}; \;\; f, \Phi_1, \dots, \Phi_n $ - непр дифф в некоторой окр $U(M_0)$
+$$\frac{D(\Phi_1, \dots , \Phi_n)}{D(y_1, \dots, y_n)}=\Delta_{\Phi, y}=
+\begin{vmatrix}
+\frac{\partial \Phi_1}{\partial y_1}&\dots &  \frac{\partial \Phi_1}{\partial y_n} 	\\ 
+\vdots& & \vdots\\
+\frac{\partial \Phi_n}{\partial y_1}&\dots & \frac{\partial \Phi_n}{\partial y_n} 
+\end{vmatrix}(M_0)\ne 0
+$$
+$\exists \Pi=\Pi(x^0)\times\Pi(y^0)\subset U(M_0): y_1=\varphi_1(x1,\dots ,x_m) \dots  y_n=\varphi_n(x1,\dots ,x_m)$\\
+$\omega)=f(x)=f(x_1,\dots , x_m, y_1, \dots ,y_n)=f(x, \varphi_1(x), \dots \varphi_n(x)$\\
+Если $x^0 $- точка лок. экстремума  f, $ \Rightarrow df(x^0) \equiv 0 \; \forall dx_1,\dots, dx_m \Rightarrow \\ 
+\Rightarrow df(x^0, y^0)\equiv 0 = \sum\limits_{k=1}^{m} \frac{\partial f}{\partial x_k}(M_0) dx_k + \sum\limits_{j=1}^{n} \frac{\partial f}{\partial y_j}(M_0)dy_j$\\
+где $dy_j(M_0) = \sum\limits_{i=1}^{m} \frac{\partial \varphi_j}{\partial x_i}(x_0)dx_i, j=\overline{1,n}$\\
+$A_1dx_1+ \dots + A_mdx_m \equiv0 \; \forall dx_1, \dots, dx_m \Rightarrow$ \\
+\textbf{Необх. условие существования лок. условного экстремума: $A_1=\dots =A_m=0. $}
+\textbf{Замечания:}
+\begin{enumerate}
+	\item Теорема о функциях, заданных неявно системой уравнений, говорит только о существовании функций $\varphi_1\dots \varphi_n$, но не дает метода их нахождения
+	\item В приведенных рассуждениях $x_1, \dots x_m$ - независимые переменные, а $y_1, \dots y_n$ - зависимые
+\end{enumerate}
+	Если $\varphi_1\dots \varphi_n$ - неизвестны, то  $dy_j(M_0)$ можно найти как:   
+	\begin{align}	
+	 &\frac{\partial \Phi_1}{\partial x_1}(M_0)dx_1+ \dots + 
+	  \frac{\partial \Phi_1}{\partial x_m}(M_0)dx_m+ 
+	  \frac{\partial \Phi_1}{\partial y_1}(M_0)dy_1+ \dots
+	  \frac{\partial \Phi_1}{\partial y_n}(M_0)dy_n = 0\\ 
+	 &\vdots\\
+	 &\underbrace{\frac{\partial \Phi_1}{\partial x_1}(M_0)dx_1+ \dots + 
+	 \frac{\partial \Phi_1}{\partial x_m}(M_0)dx_m }_{D+\mathbb{J}dy=0} +\frac{\partial \Phi_1}{\partial y_1}(M_0)dy_1+ \dots
+ 	 \frac{\partial \Phi_1}{\partial y_n}(M_0)dy_n = 0
+	\end{align}
+\subsection{Метод Лагранжа}
+Выполненные условия связи \ref{connect} 
+	\begin{multline*}
+		\left\{
+			\begin{aligned}
+				\frac{\partial f}{\partial x_1}(M_0)dx_1+ \dots + 
+				\frac{\partial f}{\partial x_m}(M_0)dx_m+ 
+				\frac{\partial f}{\partial y_1}(M_0)dy_1+ \dots
+				\frac{\partial f}{\partial y_n}(M_0)dy_n = 0
+				\\
+				D+\mathbb{J}dy=0 \; | \times \lambda=
+					\begin{pmatrix}
+						\lambda_1 \\ \dots\\ \lambda_n
+					\end{pmatrix}
+			\end{aligned} 
+		\right| + 
+		\\
+		+\sum\limits_{k=1}^m \left[\frac{\partial f}{\partial x_k}(M_0) + \lambda_1  \frac{\partial \Phi_1}{\partial x_k}(M_0)+ \dots + \lambda_n  \frac{\partial \Phi_n}{\partial x_k}(M_0)\right]dx_k+ 
+		\\
+		+\sum\limits_{j=1}^n \left[\frac{\partial f}{\partial y_j}(M_0) + \lambda_1  \frac{\partial \Phi_1}{\partial y_j}(M_0)+ \dots + \lambda_n \frac{\partial \Phi_n}{\partial y_j}(M_0)\right]dy_j=0
+	\end{multline*}
+$\lambda_1, \dots, \lambda_n $ выбираются таким образом, чтобы \\
+\begin{equation}\label{lambda0sist2}
+	\left\{ \begin{array}{rcl}
+		&\frac{\partial f}{\partial y_1}(M_0) + \lambda_1  \frac{\partial \Phi_1}{\partial y_1}(M_0)+ \dots + \lambda_n  \frac{\partial \Phi_n}{\partial y_1}(M_0)
+		\\ &\dots \\
+		&\frac{\partial f}{\partial y_n}(M_0) + \lambda_1  \frac{\partial \Phi_1}{\partial y_n}(M_0)+ \dots + \lambda_n  \frac{\partial \Phi_n}{\partial y_n}(M_0)
+	\end{array}\right.
+\end{equation}
+	
+\begin{equation}\label{lambda0sist2'}
+\left[ \frac{\partial \Lambda}{\partial x_k}(M_0) = 0, \; k=\overline{1,m}    \right]
+\end{equation}
+$\exists! \; \lambda^0=(\lambda^0_1, \dots, \lambda_n^0);$\\
+Подставляем $\lambda_0: \; 
+\sum\limits_{k=1}^m \left[\frac{\partial f}{\partial x_k}(M_0) + \lambda^0_1  \frac{\partial \Phi_1}{\partial x_k}(M_0)+ \dots + \lambda^0_n  \frac{\partial \Phi_n}{\partial x_k}(M_0)\right]dx_k=0$
+
+\begin{equation}\label{lambda0sist1}
+	\left\{ \begin{array}{rcl}
+		&\frac{\partial f}{\partial x_1}(M_0) + \lambda_1^0  \frac{\partial \Phi_1}{\partial x_1}(M_0)+ \dots + \lambda_n^0  \frac{\partial \Phi_n}{\partial x_1}(M_0)
+		\\ &\dots \\
+		&\frac{\partial f}{\partial x_m}(M_0) + \lambda_1^0  \frac{\partial \Phi_1}{\partial x_m}(M_0)+ \dots + \lambda_n  \frac{\partial \Phi_n}{\partial x_m}(M_0)
+	\end{array}\right.
+\end{equation}
+
+\begin{equation}\label{lambda0sist1'}
+\left[ \frac{\partial \Lambda}{\partial y_j}(M_0) = 0, \; j=\overline{1,n}    \right]
+\end{equation}
+В итоге из этого всего имеем 2n+m уравнений для нахождения $(x_1, \dots, x_m, y_1, \dots, y_n, \lambda_1, \dots,  \lambda_n)$
+\\
+\begin{theorem}[необходимое условие существования локального экстремума]\label{musthavelocal}
+	Пусть функции $f, \Phi_1, \dots, \Phi_n$ непрерывно дифф. в $U(M_0)$, $\Delta_{\Phi, y}\ne0$, и $M_0(x_0, y_0)$ - т. локального условного экстремума функции $\omega=f(x,y)$ при условиях связи $\Phi_1(x,y)=0, \dots, \Phi_n(x,y)=0 $\\ 
+	Тогда найдутся числа $(\lambda_1^0, \dots, \lambda_n^0)=\lambda^0$ такие, что в точке $M_0$ выполнены \ref{lambda0sist1} и \ref{lambda0sist2}\\
+	$\Lambda(x,y,\lambda)=f(x,y)+\lambda_1\Phi_1(x,y)+\dots + \lambda_n\Phi_n(x,y)$ - функция Лагранжа
+\end{theorem}
+\textbf{Следствие:}\\
+Пусть выволнены условия теоремы \ref{musthavelocal}. Если т $M_0$ является точкой локального условного экстремума функции $\omega=f(x, y)$ при условии связи $\Phi_1(x,y)=0, \; \dots \Phi_n(x,y)=0;$ то в ней выполнены равенства \ref{lambda0sist1'} и \ref{lambda0sist2'}, т.е. $M_0$ - стационарная точка функции Лагранжа.
+
+\subsection{Достаточные условия существования локального экстремума}
+$\Lambda(x,y,\lambda) = f(x,y)+ \lambda_1\Phi(x,y)+ \dots + \lambda_n\Phi_n(x,y);\\
+\lambda^0=(\lambda_1^0, \dots,\lambda_1^0);\;\; x^0=(x_1^0,\dots,x_m^0);\;\; y^0=(y_1^0,\dots,y_n^0)$
+\begin{equation}
+	\left\{ \begin{array}{rcl}
+		&\frac{\partial \Lambda}{x_k}=0		&k=\overline{1,m}\\
+		&\frac{\partial \Lambda}{y_j}=0		&j=\overline{1,n}\\
+		&Q\Phi_i=0;\; 						&i=\overline{1,n}
+	\end{array}\right.
+\end{equation}
+$f, \Phi_1,\dots, \Phi_n$ дважды непрерывно дифференцируемы в $U(M_0), \; \Delta_{\Phi, y}(M_0)\ne 0;\; M_0(x^0, y^0)\in X, \; M(x^0+\Delta x, y^0+ \Delta y)\in X\\
+\Delta f(M_0, (\Delta x, \Delta y))= f(M)-f(M_0)=\Lambda(M, \lambda^0) - \Lambda(M_0, \lambda^0)=\Delta \Lambda(M_0, \lambda^0, \Delta x, \Delta y)  $
+\begin{multline*}
+	\Delta\Lambda\left(M_0,(\Delta x, \Delta y)\right) = 
+\\ = \frac 1 2 
+	\left[
+		\sum\limits_{k,j=1}^{m} \frac{\partial^2\Lambda(M_0)}{\partial x_k\partial x_j}  \Delta x_k \Delta x_j + 
+		\sum\limits_{k=1}^{m}\sum\limits_{j=1}^{n} \frac{\partial^2\Lambda(M_0)}{\partial x_k\partial y_j}  \Delta x_k \Delta y_j + 
+		\sum\limits_{k,j=1}^{n} \frac{\partial^2\Lambda(M_0)}{\partial y_k\partial y_j}  \Delta y_k \Delta y_j
+	\right] +
+\\ +
+		\sum\limits_{k,j=1}^{m} \alpha_{kj}^1  \Delta x_k \Delta x_j + 
+		\sum\limits_{k=1}^{m}\sum\limits_{j=1}^{n} \alpha_{kj}^2  \Delta x_k \Delta y_j + 
+		\sum\limits_{k,j=1}^{n} \alpha_{kj}^3 \Delta y_k \Delta y_j = 
+\\ 	=
+	\left/ \begin{array}{rcl}
+		&\alpha_{kj}^i\rightarrow 0	&\text{ при }	\Delta x \rightarrow 0;\;\; \alpha_{kj}^2, \alpha_{kj}^3 \text{ зависят от } \Delta x, \Delta y
+		\\
+		&\Delta y_j \rightarrow 0 &\text{ при } \Delta x \rightarrow 0;\; j=\overline{1,n}  \\
+		&\Delta x_j = dx_j;\; \Delta y_j=\alpha y_j+ \gamma_j, \gamma \rightarrow 0  	&\text{ при }	\Delta x \rightarrow 0;\; j=\overline{1,n}
+	\end{array}\right/=
+\\	= 
+		\frac 1 2 
+		\left[
+		\sum\limits_{k,j=1}^{m} \frac{\partial^2\Lambda}{\partial x_k\partial x_j}  d x_k d x_j + 
+		\sum\limits_{k=1}^{m}\sum\limits_{j=1}^{n} \frac{\partial^2\Lambda}{\partial x_k\partial y_j}  d x_k d y_j + 
+		\sum\limits_{k,j=1}^{n} \frac{\partial^2\Lambda}{\partial y_k\partial y_j}  d y_k d y_j
+		\right] + 
+\\ +
+		\sum\limits_{k,j=1}^{m} \widetilde{\alpha_{kj}^1}  d x_k d x_j + 
+		\sum\limits_{k=1}^{m}\sum\limits_{j=1}^{n} \widetilde{\alpha_{kj}^2}  d x_k d y_j + 
+		\sum\limits_{k,j=1}^{n} \widetilde{\alpha_{kj}^3} d y_k d y_j
+\end{multline*}
+$dy_j (M_0) = \sum\limits_{k=1}^m C_k dx_k;\; d^2\widetilde{\Lambda}(M_0, (\Delta x, \Delta y))= \sum\limits_{k,j=1}^m A_{kj} dx_k dx_j; \; A_{kj}=A_{jk}$\\
+$\Delta =\Lambda(M_0,(\Delta x, \Delta y))=d^2\hat{\Lambda}(M_0)+\beta(\Delta x), \; \beta(\Delta x) \rightarrow 0 $ при $\Delta x\rightarrow 0$ \\
+$d^2\hat{\Lambda}(M_0)=d^2\Lambda(M_0)$  т.к. первые производные функции Лагранжа в стационарной точке $M_0 ;\;\; =0 \; \Rightarrow d^2y $ равны 0\\
+\\
+\begin{theorem}
+	Пусть f и $\Phi_j, j=\overline{1,n}$ дважды дифф функции в $U(M_0)$ ($M_0$ - стационарная точка функции Лагранжа) и $\Delta_{\Phi, y}(M_0)\ne 0 $ тогда
+	\begin{enumerate}
+		\item Если $d^2\hat{\Lambda}(M_0)$ положительно определенная квадратичная форма, то $M_0$ - точка условного минимума  функции f при условии связи
+		\item Если $d^2\hat{\Lambda}(M_0)$ отрицательно определенная квадратичная форма, то $M_0$ - точка условного максимума функции f при условии связи
+		\item Есои $d^2\hat{\Lambda}(M_0)$ неопределенная квадратичная форма, то экстремума нет
+	\end{enumerate}
+\end{theorem}
+\textbf{Замечание:} если $d^2\hat{\Lambda}(M_0)$ полуопределенная кв. форма, то нужно проводить дополнительные исследования

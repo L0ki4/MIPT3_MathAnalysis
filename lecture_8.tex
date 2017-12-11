@@ -1,0 +1,88 @@
+
+\subsection{Замена переменных в двойном интеграле.}
+Напомним начальные условия:\\
+$ F=\overline{\Omega^*} \rightarrow \overline{\Omega} $
+\begin{enumerate}[I]
+	\item Взаимно однозначное
+	\item Дважды непрырвна дифференцируема
+	\item $ \mathcal{J}_k(u^{*},v^{*})\neq0;\; (u^{*},v^{*}) \in \overline{\Omega^*} $
+\end{enumerate}
+Нас теперь будет интересовать $ \iint_\Omega g(x,y)dxdy$ причем $ w=g(x,y) $ непрерывна в $ \overline{\Omega} $
+\begin{theorem}
+	Пусть отображение $ F $ удовлетворяет свойствам I--II, функция $ w=g(x,y) $ непрерывна в $ \overline{\Omega} $ и $ F $ преобразование ограниченной замкнутой области с кусочно гладкой границей $ \overline{\Omega^*} $ в ограниченной замкнутой области с кусочно гладкой границей $ \overline{\Omega} $. Тогда справедлива формула 
+	\begin{equation}\label{B}
+	\iint_\Omega g(x,y)dxdy = \iint_{\Omega^*} g(f^1(u,v),f^2(u,v))\abs{\mathcal{J}_F(u,v)}dudv
+  	\end{equation}
+  	\end{theorem}
+ \begin{proof}
+ 	$ T^* $ --- разбиение области $ \Omega^* $, $ T^* = \{ \Omega_i^* \}_{i=1}^n $ при $ F\; T=\{ \Omega_i \}_{i=1}^n $ --- разбиение $ \Omega $. $ I=\sum_{i=1}^{n} g(z^i)m(\Omega_i) $\\
+ 	$ z^i = (x^{i}, y^{i}) \in \overline{\Omega_i},\; \forall i\, \exists w^i=(u^{i},v^{i})\in \overline{\Omega^*}: m(\Omega_i) = \abs{\mathcal{J}_F(w^i)}m(\Omega_i^*) $ тогда, учитывая что $ z^i=(f^1(w^i),f^2(w^i))) $\\
+ 	\begin{equation}
+ 	 I=\sum_{i=1}^{n} g(z^i)m(\Omega_i) = \sum_{i=1}^n g(z^{i})\abs{\mathcal{J}_F(w^i)}m(\Omega_i^*)=\sum_{i=1}^n g(f^1(w^{i}),f^2(w^{i}))
+ 	 \abs{\mathcal{J}_F(w^{i})}m(\Omega_i^*) 
+ 	 \label{A}
+ 	\end{equation}
+ 	Заметим, что первая часть \eqref{A} стремится к первой части \eqref{B} и аналогично ведут себя вторые части.
+ \end{proof}
+\textbf{Замечание.} Эта же формула справедлива в случае \textit{m}--кратного интеграла.
+\part{Поверхностные интегралы.}
+\section{Понятие поверхности.}
+\subsection{Простейшие примеры задания поверхности.}
+Вся эта тема рассматривается на $ \mathbb{E}^3, Oxyz $.\\
+Перечислим способы задания поверхности:
+\begin{enumerate}[$ 1^\circ $]
+	\item График функции --- простейший пример задания поверхности\\
+	$ z=f(x,y), (x,y)\in\overline{\Omega},\;f(x,y)\geqslant0 $
+	\item $ F(x,y,z)=0 $, предполагаем, что в окрестности точки $ (x_{0},y_{0},z_{0})\;F$ непрерывно дифференцируема и $F_{z}(x_0,y_0,z_0)\neq0$. Это уравнение задает функцию $ z $ как не явную функцию от $ x $ и $ y:z=f(x,y) $ в окрестности некоторой точки $ (x_{0},y_{0},z_{0}) $. 
+	\item $ F(x,y)=0 $ --- случай задания цилиндрической поверхности. 
+\end{enumerate}
+\subsection{Параметрическое задание поверхности.} 
+$ F:\overline{\Omega} \subset \mathbb{E}^2_{(u,v)} \rightarrow \mathbb{E}^3_{(x,y,z)}$
+\begin{enumerate}[I]
+	\item $ x = \varphi(u,v),\; y = \psi(u,v),\; z = \chi(u,v),\; (u,v)\in\overline{\Omega}$ %% тут должно быть хи
+	\item $ \overline{r}=\overline{r}(u,v),\; (u,v)\in\overline{\Omega},\;F $ непрерывно дифференцируема
+	  \end{enumerate}
+	$
+	\begin{pmatrix}
+		\varphi_u\;\psi_u\;\chi_u\\
+		\varphi_v\;\psi_v\;\chi_v
+	\end{pmatrix}\qquad
+	\; A = \Delta_{\psi \chi} = \begin{vmatrix}
+	\psi_u\;\chi_u\\ \psi_v\; \chi_v
+	\end{vmatrix}\quad
+	B=\Delta_{\chi \varphi}= \begin{vmatrix}
+	\chi_u\;\varphi_u\\\chi_v\;\varphi_v
+	\end{vmatrix}\quad
+	C=\Delta_{\varphi \psi} = \begin{vmatrix}
+	\varphi_u\;\psi_u\\\varphi_v\;\psi_v
+	\end{vmatrix}
+	$\\
+	
+	 Предположим, что хотя бы 1 из определителей $ \neq 0: $ 	$\Delta_{\varphi \psi} \neq 0,\;U(u_0,v_0,x_0,y_0)$\\
+$
+	\begin{cases}
+		x-\varphi(u,v)=0\\
+		y-\psi(u,v)=0
+	\end{cases}
+$
+$ u=h(x,y),\;v=g(x,y) $ в $ \widetilde{u}(x_0,y_0),\; z = \chi(h(x,y),g(x,y))\Rightarrow z=f(x,y) $\\ %тут нужна кривая линия над u
+$ (u_0,v_0) $ --- особая точка: $ \Delta_{\psi \chi}=\Delta_{\chi \varphi}=\Delta_{\varphi \psi}=0 $ \\
+$ (u_0,v_0) $  --- не является особой: $ [\overline{r_u}(u_0,v_0),\overline{r_v}(u_0,v_0)]\neq\overline{0} \Rightarrow\overline{r_u}(u_0,v_0)\neq\overline{0},\;\overline{r_v}(u_0,v_0)\neq\overline{0}$
+
+\textbf{Определение.} Множество точек $ S \subset \mathbb{E}^3_{(x,y,z)} $ являющихся образом ограниченной замкнутой плоской области $ \overline{\Omega}\subset \mathbb{E}^2_{(u,v)} $ при непрерывном отображении $ F $ вида I называется параметрически заданной поверхностью, а отображение I называется ее координатным представлением\\
+\begin{equation}\label{C}
+ S = \{ x=\varphi(u,v),\;y=\psi(u,v),\;z=\chi(u,v),\;(u,v)\subset\overline{\Omega} \} 
+\end{equation}
+\textbf{Определение.} Множество точек $ S \subset \mathbb{E}^3_{(x,y,z)} $ являющихся образом ограниченной замкнутой плоской области $ \overline{\Omega}\subset \mathbb{E}^2_{(u,v)} $ при непрерывном отображении $ F $ вида II называется параметрически заданной поверхностью, а отображение II называется ее векторным представлением\\
+\begin{equation}\label{D}
+S = \{ \overline{r} = \overline{r}(u,v),\;u,v \in \overline{\Omega} \} 
+\end{equation}
+\textbf{Определение.} Непрерывно дифференцируемое отображение $ F $ вида I или II называется гладким, если $ [\overline{r_u},\overline{r_v}] \neq 0 $ в $ \overline{\Omega} $ \\
+\textbf{Определение.} Поверхность $ S $ вида \eqref{C} или \eqref{D} называется \textit{простой гладкой поверхностью}, если отображение $ F $ вида I или II соответственно взаимно однозначно или гладкое.\\
+\textbf{Пример.} $ z=f(x,y),\; (x,y)\in\overline{\Omega} \subset \mathbb{E}^2_{(x,y)} ,\;f $ --- непрерывно дифференцируемая функция.\\
+$ \overline{r}=(x,y,f(x,y)),\;\overline{r_x} = (1,0,f_x).\;\overline{r_y}=(0,1,f_y) $\\
+$ [\overline{r_x},\overline{r_v}]=\begin{vmatrix}
+i\;j\;k\\1\;0\;f_x\\0\;1\;f_y
+\end{vmatrix} =-f_xi-f_yj+k \neq \overline{0}\quad\abs{[\overline{r_x},\overline{r_v}]}=\sqrt{1+f_x^2+f_y^2}$\\
+
+\textbf{Определение.} Для простой гладкой поверхности $ S\subset\mathbb{E}^3 $, заданной отображением $ F $ вида I или II образ $ \partial \Omega $ при $ F $ названной краем поверхности $  S $ обозначается $ \delta S $ . Нужно помнить, что грань и граница не совпадают $ \partial S = S$, но $ \delta S \neq \partial S $

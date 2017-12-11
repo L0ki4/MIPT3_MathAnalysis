@@ -1,0 +1,71 @@
+
+
+\section{Свойства кратных интегралов}
+\begin{theorem}
+	Если $\Omega\subset\mathbb{E}^m$ - измеримая область, то $\int_\Omega= m(\Omega) $
+\end{theorem}\vspace{-15pt}
+	$f(x)\equiv 1 $ на $\overline{\Omega} .  \forall x\in \overline{\Omega}, \; \Omega $ - измеримое множество.
+\begin{theorem}[интегрируемость подмнож.] \label{th6.2}
+	Пусть $\Omega\subset\mathbb{E}^m$  и  $\Omega'\subset \Omega$ измеримые области и функция $\omega=f(x)$  интегрируема на $\Omega$ , тогда $f$ интегрируема на множестве $\Omega'$
+\end{theorem}\vspace{-15pt}
+\begin{proof}
+	$\Omega'\ne \Omega;\; f$ интегрируема на $\Omega.$ 
+	$T=\{\Omega_k\}, T'=\{\Omega_k'\}  $, где $\Omega_k'=\Omega_k\cap \Omega' $ тогда
+	$ \;\; \forall \varepsilon>0 \; \exists T: S^*(T)-S_*(T) < \varepsilon;\; $\\
+	$M_k'=\sup_{\overline{\Omega}_k'}f \leq \sup_{\overline{\Omega}_k} f = M_k; m_k'=\inf_{\overline{\Omega}_k'}f \geq \inf_{\overline{\Omega}_k} f = m_k \Rightarrow$
+	
+	\begin{equation} \label{eq6.2}
+		 S^*(T')-S_*(T')\leq S^*(T)-S_*(T)<\varepsilon\; 
+	 \end{equation}
+\end{proof}\vspace{-10pt}
+
+\begin{theorem}[аддитивность интеграла]
+	Пусть $\Omega$ и $\Omega'$ измеримые области в $\mathbb{E}^m,\; \Omega'\subset\Omega$ и $ \Omega''=\Omega\backslash \overline{\Omega}'.$ Если функция $\omega=f(x)$ интегрируема на $\Omega $, то $f$ интегрируема на   $\Omega' $ и $\Omega'' $ и $ \int_\Omega fd\omega = \int{\Omega'}fd\omega + \int{\Omega''}fd\omega $
+\end{theorem}
+\begin{proof} \vspace{-15pt}
+	Из теоремы \ref{th6.2} $\Rightarrow \; f$ интегрируема на $\Omega' $ и $\Omega'' $ и существует интеграл в \ref{eq6.2}. $T'$ - разбиение $\Omega' $. $T''$ - разбиение $\Omega''$.  Тогда $T=T'\cup T''$ -разбиение множества $\Omega$. \\
+	$\Delta_t= \max\{\Delta_{T'}, \Delta_{T''} \}.\; \forall \xi', \xi'': \xi=\xi'\cup \xi'' \rightarrow I\{T, \xi\}= I\{T', \xi'\}+ I\{T'', \xi''\}  $
+	$\Delta_T \rightarrow 0 \Rightarrow \ref{eq6.2}$
+\end{proof}
+
+\begin{theorem}[линейность интеграла]
+	Пусть $\Omega\subset \mathbb{E}^m$ измеримая область. $\omega=f(x)$  и $\omega=g(x)$ интегрируемые на $\Omega$ функции. Тогда $\forall \alpha, \beta\in\mathbb{R} $ функция $\omega= \alpha f(x) + \beta g(x) $ интегрируема на $\Omega$: \\
+	$\int_\Omega \big[\alpha f + \beta g \big]d\omega = \alpha \int_\Omega fd\omega + \beta \int_\Omega gd\omega$  \\
+	Кроме того функция $\omega=f\cdot g $ так же интегрируема на $\Omega$ 
+\end{theorem}
+
+\begin{theorem}[Инт. от положительной функции]
+	Пусть $\Omega\subset \mathbb{E}^m$ измеримая область. Функция $\omega=f(x)$ определена на $\overline{\Omega}, \; f(x)\geq 0 \forall x\in \Omega$ и $f$ интегр на $\Omega$. Тогда: $\int_\Omega fd\omega\geq 0  $
+\end{theorem}
+
+\begin{theorem}
+	Если $f$ и $g$ интегрируема на измеримой области $\Omega \subset \mathbb{E}^m $ и $\forall x\in \overline{\Omega} \rightarrow f(x) \geq g(x), $ то $ \int_\Omega fd\omega\geq \int_\Omega gd\omega$ 
+\end{theorem}
+
+\begin{theorem}
+	Если $f$  интегрируемость на измеримой области $\Omega \subset \mathbb{E} $, то функция $|f|$ интегрируема на $\Omega$ и выполнено: $|\int_\Omega fd\omega|\leq \int_\Omega|f|d\omega \leq cm(\Omega),  $ где $c:\forall x\in \overline{\Omega} \rightarrow |f(x)|\leq c $
+\end{theorem}
+
+\paragraph{Замечание:}\vspace{-10pt}
+В обратную сторону не верно. Контрпример - функция Дирихле.
+
+\begin{theorem}
+	Если $\Omega\subset \mathbb{E}$ и $\Omega'\subset \mathbb{E}: \Omega'\subset \Omega, \omega=f(x) $ интегрируема на $\Omega$ и $f(x)\geq 0 \;\forall x\in\ \Omega,$ тогда $\int_{\Omega'}fd\omega \leq \int_\Omega f d\omega $
+\end{theorem}
+
+\begin{theorem}
+	Пусть функции $\omega=f(x) $ и  $\omega=g(x) $ интегрируемы на измеримой области $\Omega\subset \mathbb{E}$. $g$ не меняет знак на $\overline{\Omega},\; m\leq f(x) \leq M\; \forall x \in \overline{\Omega},$ тогда $\exists \mu: m\leq \mu \leq M:  \int_\Omega fgd\omega = \mu \int_\Omega gd\omega.\;\; $	Если  же $f$ непрерывна на $\overline{\Omega}$, то $\exists x^0 \in \overline{\Omega}:  \int_\Omega fgd\omega = f(x^0) \int_\Omega gd\omega$ 
+\end{theorem}
+
+\begin{theorem}
+	Пусть $\Omega\subset \mathbb{E}^m$ - измеримая область $\Omega_1 \subset  \Omega_2 \subset  \Omega_3 \dots \subset \Omega$ 
+\end{theorem}
+\begin{proof}
+	$\forall x\in \overline{\Omega} \rightarrow |f(x)|\leq C, \widetilde{\Omega}_k=\Omega\backslash \overline{\Omega}_k  $ - измеримое множество и $m(\widetilde{\Omega}_k)=m(\Omega)\backslash m(\overline{\Omega})\backslash m(\overline{\Omega})\xrightarrow{k\rightarrow \infty} 0  \Leftrightarrow  \forall \varepsilon>0 \; \exists k_0: m(\widetilde{\Omega}_{k_0})< \frac{\varepsilon}{4c}$ \\
+	$\Omega_{k_0}, f $ интегрируема на $\Omega_{k_0} \Rightarrow \exists T^{k_0} $ область $\Omega_{k_0}: S^*(T^{k_0}) - S_*(T^{k_0})< \frac \varepsilon 2 $\\
+	$\exists T=T^{k_0} \cup \widetilde{T}^{k_0}, \;$ где $\widetilde{T}^{k_0} $ разбиение множества $\Omega\backslash \overline{\Omega}_{k_0} = \widetilde{\Omega}_{k_0} $\\
+	$S^*(T)-S_*(T)= S^*(T^{k_0}) -  S^*(T^{k_0}) + S^*(\widetilde{\Omega}^{k_0})- S_*(\widetilde{\Omega}^{k_0})< \frac \varepsilon 2 + 2c\frac{\varepsilon}{4c}= \varepsilon $\\
+	$|\int_\Omega fd\omega - \int_{\Omega_k} fd\omega| = |\int_{\widetilde{\Omega}}fd\omega|<cm(\widetilde{\Omega})\xrightarrow{k\rightarrow \infty} 0 $
+\end{proof}
+
+

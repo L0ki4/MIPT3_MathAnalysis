@@ -1,0 +1,97 @@
+
+
+\section{Локальные экстремумы функций многих переменных}
+\subsection{Определение и необходимые условия существования экстремумов}
+$\omega=f(x), \; x\in\mathbb{E}^m, \; x=(x_1, x_2, \dots, x_m), x^0=(x^0_1, \dots, x^0_m)$
+\begin{determenition}
+	Точка $x^0$ называется точкой локального минимума [максимума] функции $\omega=f(x), $ если $\exists B_\delta(x^0): \forall x \in B_\delta(x^0) $ выполнено $f(x^0) < f(x)\;\; [f(x^0) > f(x)] $
+\end{determenition}
+\setcounter{theorem}{0}
+\begin{theorem}[Необходимое условие существования локального экстремума]
+	\label{th:1}
+	Если функция $\omega=f(x)$ дифференцируема в точке $x^0$ и имеет в этой точке локальный экстремум, и все ее частные производные в этой точке =0 т.е. 
+	$$\frac{\p f}{\p x_1}(x_0) = \frac{\p f}{\p x_2}(x_0) = \dots =  \frac{\p f}{\p x_m}(x_0)=0$$
+\end{theorem}
+\begin{proof}
+	Фиксируем $x^0_2, \dots, x^0_m; \; f(x_1,x^0_2, \dots, x^0_m)=f(x_1); \; f'(x^0_1)=\frac{\p f}{\p x_1}(x^0) $. f диф. в точке $x_1^0$ и имеет в ней локальный экстремум. Тогда по теореме Ферма $f'(x^0_1)=0=\frac{\p f}{\p x_1}(x^0)  $. Равенство 0 остальных ч.п. доказывает аналогично.
+\end{proof}
+\begin{sentence}
+	\ref{th:1} - необходимое, но не достаточное условие существования локального экстремума. например: \\
+	$\omega=xy; \; (0,0): \frac{\p \omega}{\p x}(0,0)=\frac{\p \omega}{y}(0,0)=0$, но $\nexists B_\delta(0,0): \forall (x,y) \in B_\delta \rightarrow \omega(x,y)>\omega(0,0)=0$ или $\omega(x,y)<\omega(0,0)=0$. Точка $x^0: \frac{\p f}{\p x_1}(x^0)=\dots=\frac{\p f}{\p x_m}(x^0)=0 $ - стационарная точка
+\end{sentence}
+\begin{theorem_nu}[\textbf{1'}]\label{th:1'}
+	Если $\omega=f(x)$ дифференцируема в точке $x^0$ и имеет в этой точке лок. экстремум, то дифференциал $df(x^0)\equiv 0$ относ дифф. независ. перем. $dx_1, \dots dx_m$
+\end{theorem_nu}
+\begin{proof}
+	$df(x^0)=\frac{\p f}{\p x_1}(x^0)dx_1+ \dots + \frac{\p f}{\p x_m}(x^0)dx_m; \;\;\;$ из т.$ 
+	\ref{th:1} \Rightarrow df(x^0)=0$
+\end{proof}
+
+\subsection{Достаточное условие существования локального экстремума}
+$\omega=f(x), \; x^0: \frac{\p f}{\p x_1}(x^0_1) + \dots +  \frac{\p f}{\p x_m}(x^0_m)=0; $ f -дважды непрерывно дифференцируема в точке $x^0$ т.е. $d^2f(x^0)=\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}a_{ij}dx_idx_j; \; a_{ij}=a_{ji};$\\
+Это квадратичная форма относительно $dx_i, i=\overline{1,m}; \;$ 
+$k=k(x)=\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}a_{ij}x_ix_j; \; a_{ij}=a_{ji}$
+\begin{enumerate}
+	\item k(x) - положительно определенная кв. форма: $\forall x\ne 0 \rightarrow k(x)>0$
+	\item k(x) - отрицательно определенная кв. форма: $\forall x\ne 0 \rightarrow k(x)<0$
+	\item k(x) - положительно полуопредел. кв. форма: $\forall x \rightarrow k(x)\geq0 \;\&\; \exists x\ne 0: k(x)=0$
+	\item k(x) - отрицательно полуопредел. кв. форма: $\forall x \rightarrow k(x)\leq0 \;\&\; \exists x\ne 0: k(x)=0$
+	\item k(x) - неопределенная кв. форма: $\exists x', x'': k(x')>0 \;\&\; k(x'')<0$
+\end{enumerate}
+\begin{theorem}
+	\label{th:2}
+	Пусть $\omega=f(x)$ дважды непрерывно дифференцируема в некоторой окрестности стационарной точки $x^0$. 
+	\begin{enumerate}
+		\item Если $d^2f(x^0)$ положительно определенная кв. форма, то т $x^0$ - точка лок. min
+		\item Если $d^2f(x^0)$ отрицательно определенная кв. форма, то т $x^0$ - точка лок. max
+		\item Если $d^2f(x^0)$ неопределенная кв. форма, то т $x^0$ не является точкой лок. экстремума функции
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+		\item $f(x)-f(x^0)=df(x^0)+\frac 1 2 d^2f(x^0) + o(\rho^2), \rho\rightarrow0; \; df(x^0)=0$ по т. \ref{th:1'}. $\; dx_1=x_1-x_1^0\; \dots dx_m=x_m-x^0_m; \; \rho=\sqrt{(x_1-x_1^0)^2+ \dots + (x_m-x_m^0)^2}$\\
+		$o(\rho^2)\stackrel{\rho\rightarrow 0}{=}\alpha(\rho)\rho^2,\; \alpha(\rho)\xrightarrow{rho\rightarrow 0}0, \; $\\
+		Обозначим $h_i=\frac{x_i - x^0_i}{\rho}; i=\overline{1,m}; \; |h_i|\leq1; \; h^2_i+ \dots h^2_m=1; \; h=(h1, \dots, h_m).$ Тогда:\\
+		$$f(x)-f(x^0)=\rho^2\left[\frac 1 2 \sum_{i=1}^{m}\sum_{j=1}^{m}a_{ij} h_i h_j + \alpha(\rho)\right] $$
+		Функция $k(h)=\sum_{i=1}^{m}\sum_{j=1}^{m}a_{ij} h_i h_j $ - непрерывна на компакте $S=\{ h: h_1^2+ \dots h^2_m=1 \}$ Тогда по 2 теореме Вейерштрасса:\\
+		$\exists h'\in S: h'\ne 0, k(h')=\mu>0, \exists \rho'>0: \forall \rho<\rho' \rightarrow |\alpha(\rho)| < \frac \mu 2 \Rightarrow$\\
+		$\Rightarrow \forall \rho<\rho' \rightarrow f(x)-f(x^0)>0. \sum_{i=1}^{m}(x_i-x^0_i)^2<\rho^2$
+		\item Аналогично 1 пункту
+		\item Как и в первом пункте $f(x)-f(x^0)=df(x^0)+\frac 1 2 d^2f(x^0) + o(\rho^2), \rho\rightarrow0; \; df(x^0)=0$ по т. \ref{th:1'}. $\; dx_1=x_1-x_1^0\; \dots dx_m=x_m-x^0_m; \; \rho=\sqrt{(x_1-x_1^0)^2+ \dots + (x_m-x_m^0)^2}$\\
+		$o(\rho^2)\stackrel{\rho\rightarrow 0}{=}\alpha(\rho)\rho^2,\; \alpha(\rho)\xrightarrow{\rho\rightarrow 0}0, \; $\\
+		$h_i=\frac{x_i - x^0_i}{\rho}; i=\overline{1,m}; \; |h_i|\leq1; \; h^2_i+ \dots h^2_m=1;$
+		Тогда $h_i'=\frac{x_i'-x^0}{\rho}, \; h_i''=\frac{x_i'' - x_0}{\rho}; i=\overline{1,m};$\\
+		$\exists h'=(h_1', \dots, h_m'), h''=(h_1'', \dots, h_m''): k(h')>0, k(h'')<0\\
+		f(x')-f(x^0) =\rho^2\left[\frac 1 2 \sum_{i=1}^{m}\sum_{j=1}^{m}a_{i,j} h_i' h_j' + \alpha(\rho)\right] \Rightarrow \exists \rho': \forall \rho<\rho' \; f(x')- f(x^0)>0 \\
+		f(x'')-f(x^0) =\rho^2\left[\frac 1 2 \sum_{i=1}^{m}\sum_{j=1}^{m}a_{i,j} h_i'' h_j'' + \alpha(\rho)\right] \Rightarrow \exists \rho'': \forall \rho<\rho'' \; f(x'')- f(x^0)<0 \\
+		$		
+	\end{enumerate}
+\end{proof}
+\begin{sentence}
+	\begin{enumerate}
+		\item Если $x^0$ - стационарная точка, $\omega=f(x)$ и $d^2f(x^0)$ - положительно [отрицательно] полуопределенная кв. форма, то о существовании локального экстремума нельзя ничего сказать. $\omega=f_1(x,y)=(x-y)^4, \; \omega=f_2(x,y)=x^4+y^4; \; (x^0,y^0)=(0,0)$ - стационарная точка $f_1$ и $f_2$. Тогда:\\
+		$df_1=4(x-y)^3(dx-dy);\; d^2f_1=12(x-y)^2(dx-dy)^2;\; d^2f_1(x,x)=0$ - полуопределенная кв. форма. \\
+		$df_2=4x^3dx+4y^3dy;\; d^2f_2=12x^2dx^2+12y^2dy^2>0$ везде кроме (0,0) - точки локального минимума функции $f_2;\; f_2(0,0)=0$
+		\item Условие $d^2f(x^0)\geq 0\; [d^2f(x^0)\leq 0]$ - необходимое условие локального экстремума. 
+		\paragraph{Примеры}
+		\begin{enumerate}
+			\item $\omega=x^4+y^4-2x^2;\;\; d\omega=(4x^3-4x)dx+4y^3dy; \;\; d^2\omega=(12x^2-4)dx^2+12y^2dy^2$\\
+			$M_1(0,0), M_2(1,0), M_3(-1,0)$\\
+			$d^2\omega(M_1)=-4dx^2<0; \; \forall dx\ne 0 \Rightarrow M_1 - $ локальный max\\
+			$d^2\omega(M_2)=8dx^2>0; \;  \forall dx\ne 0 \Rightarrow M_2 - $ локальный min\\
+			$d^2\omega(M_3)=8dx^2>0; \;  \forall dx\ne 0 \Rightarrow M_3 - $ локальный min\\
+			\item $\omega=\lambda x_1^2+x_2^2+\dots + 2x_2 + \dots +2x_m, \lambda\in \mathbb{R}, \lambda\ne 0$\\
+			$\frac{\p \omega}{\p x_1}=2\lambda x_1, \frac{\p \omega}{\p x_2}=2x_2+2, \dots, \frac{\p \omega}{\p x_m}=2x_m+2;$\\
+			Стационарная точка M(0,-1,\dots, -1)\\
+			$d^2\omega=2\lambda dx_1^2+ 2dx_2^2+ \dots 2dx_m^2;$ Тогда есть два случая:
+			\begin{enumerate}
+				\item $\lambda>0\; \Rightarrow\; d^2\omega^{(M)}>0 \;\;\forall (dx_1, \dots , dx_m) \ne (0,\dots, 0)$ M - точка лок. min
+				\item $\lambda<0\; (dx_1, \dots, dx_m)=(1,0,\dots, 0) \; d^2\omega<0 \\
+				(dx_1, \dots, dx_m)=(0,1,0,\dots, 0) \; d^2\omega>0$ локальный  экстремум
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}	
+\end{sentence}
+
+
+

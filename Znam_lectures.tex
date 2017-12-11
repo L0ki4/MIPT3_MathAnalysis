@@ -1,5 +1,7 @@
 \documentclass{letnab}
 
+\newtheorem*{determenition}{Определение}
+\newcommand{\p}{\partial}
 
 \rhead{Кратные интегралы и теория поля МФТИ}
 \lhead{Лекции Знаменской Л.Н.}
@@ -7,6 +9,370 @@
 
 
 \begin{document}
+	
+	\tableofcontents
+	\newpage
+\input{question_1.tex}
+\input{question_2.tex}
+\input{question_3.tex}
+\input{question_4.tex}
+\input{question_6.tex}
+\input{question_7.tex}
 \input{lecture_6.tex}
 \input{lecture_7.tex}
+\input{lecture_8.tex}
+\input{lecture_9.tex}
+\input{lecture_10.tex}
+\input{lecture_11.tex}
+\section{Площадь поверхности}
+\subsection{Пример Шварца (сапог Шварца)}
+Рассмотрим прямой круговой цилиндр $ \prod $, радиуса $ R $ и высотой $ H $\\
+$ S_\triangle=R \sin \pi/n \sqrt{\left(H/m\right)^2+R^2\left(1-\cos\pi/n\right)^2}  $\\
+$ S_\Pi=2mnS_\triangle=2\pi R\frac{\sin \pi/n}{\pi/n}\sqrt{\frac{R^2\pi^4}{4}\left(m/n^2\right)^2\left(\frac{\sin \frac{\pi}{2n}}{\pi/2n}\right)^4+H^2} $\\
+$ m\rightarrow\infty ,\; n\rightarrow \infty: m/n^2 \rightarrow q\ge0 \Rightarrow S=2\pi R\sqrt{\frac{R^2\pi^4}{4}q^2+H^2};\; S =2\pi RH \Leftrightarrow q=0 $
+
+\begin{sentence}
+	Площадь простой гладкой поверхности $ S $ не зависит от ее векторного представления.
+\end{sentence}
+\begin{proof}
+	Воспользуемся допустимой заменой координат:\\
+	$ H:\quad u=h^1(u^*, v^*),\; v=h^2(u^*, v^*),\; (u^*, v^*)\in \overline{\Omega^*}\\ m(S)=\iint_\Omega\abs{[\overline{r_u}, \overline{r_v}]}dudv=\iint_{\Omega^*}|\abs{[\overline{r_u}(h^1, h^2),\;\overline{r_v}(h^1, h^2)]}|\mathcal{J}_H(u^*, v^*)|du^*dv^*=\iint_{\Omega^*}\abs{\overline{\rho_{u^*}}, \overline{\rho_{v^*}}}du^*,dv^* $
+\end{proof}
+\subsection{Другое выражение для площади поверхности}	
+$ \abs{[\overline{r_u},\overline{r_v}]}^2+(\overline{r_u},\overline{r_v})^2=\abs{\overline{r_u}}^2\abs{\overline{r_v}}^2 $\\
+$ \abs{[\overline{r_u},\;\overline{r_v}]} = \sqrt{EG-F^2},\; E=\abs{r_u}^2,\; G=\abs{r_v}^2,\; F=(\overline{r_u},\overline{r_v}) \\ m(s)=\oint_\Omega\sqrt{EG-F^2}dudv$ --- первый дифференциал поверхности.\\
+\textbf{Пример.} $ z=f(x,y),\;(x,y)\in\overline{\Omega}\\ m(S)=\oint_\Omega\sqrt{1+\left(f_x\right)^2+\left(f_y\right)^2}dxdy=\oint_\Omega\frac{dxdy}{\abs{\cos \gamma}} $
+\section{Поверхностные интегралы}
+\subsection{Поверхностный интеграл первого рода}
+$ g=g(x,y,z)  $ непрерывна на простой гладкой поверхности $ S $, $ S=\{ \overline{r}=\overline{r}(u,v),\; (u,v)\in\overline{\Omega} \} $\\
+$ S=$\tmb{k}{\cup}{j=1} $S_j,\;\xi_j \in S_j,\; T = \{S_j\}^k_{j=1};\; \xi = \{ \xi_j \}^{k}_{j=1};\quad \sigma \{T,\xi \}=\sum_{j=1}^{k}g(\xi_j)m(S_j) $
+
+\paragraph{Определение.} Число $ I $ называется пределом интегральной суммы $ \sigma\{T,\xi\} $ при $ \Delta_T\rightarrow0 $, если $ \forall \varepsilon>0\, \exists\delta=\delta(\varepsilon)>0:\forall T:\Delta_T<\delta \& \forall \xi \Rightarrow \abs{\sigma\{ T, \xi \}-I}<\varepsilon $
+\paragraph{Определение} Если существует предел $ \sigma\{T,\xi\} $ при $ \Delta_T\rightarrow0 $, то он называется поверхностным интегралом первого рода от функции $ g $ по поверхности $ S $\\
+\textbf{Обозначение.} $ \iint_S g(x,y,z)dS=\iint_SgdS $
+\subsection{Сведение поверхностного интеграла первого роад к двойному интегралу}
+\setcounter{theorem}{0}
+\begin{theorem}
+	Если $ S $ простая гладкая поверхность с кусочно гладким краем $ \delta S $, а $ g(x,y,z) $ непрерывна на $ S $, то справедлива формула:
+	\[
+	\iint_Sg(x,y,z)dS=\iint_Sg(\overline{r}(u,v)\abs{[\overline{r_u},\overline{r_v}]})
+	\]
+\end{theorem}
+\begin{proof}
+	$ T = \{ S_i \},\; T_i = \{ \Omega_i \},\; \Delta_T \rightarrow 0 \Leftrightarrow \Delta_{T'}\rightarrow0\\
+	F(\Omega_i) = S_i,\; \xi_i \in S_i,\; \overline{O\xi} = \overline{r}(\eta_i),\; \xi =\{ \xi_i \},\; \eta = \{\eta_i \} \\
+	\sigma^S\{T, \xi \} = \sim_i g(\xi_i)m(S_i) = \sum_i g(\xi_i) \iint_{\Omega_i}|[\overline{r_u},\overline{r_v}]|dudv \\
+	\exists \eta_i^* \in \overline{\Omega_i}:\; \sum_i g(r(\eta_i))|[\overline{r_u}(\eta_i^*),\overline{r_v}(\eta_i^*)]|m(\Omega_i)\\
+	\sigma\{T', \eta\} = \sum_i g(r(\eta_i))|[\overline{r_u}(\eta_i),\overline{r_v}(\eta_i)]|m(\Omega_i)\\
+	w = |[\overline{r_u}(\eta),\overline{r_v}(\eta)]|$ --- непрерывна на $ \overline{\Omega} \overset{\text{т. Кантора}}{\Longrightarrow} $ равномерно непрерывна на $ \overline{\Omega} \\
+	\forall \varepsilon>0 \exists\delta=\delta(\varepsilon): \forall \eta, \eta' \in \overline{\Omega}: \rho(\eta> \eta')<\delta \rightarrow ||[\overline{r_u}(\eta), \overline{r_v}(\eta)]|- |[\overline{r_u}(\eta'),\overline{r_v}(\eta')]||<\frac{\varepsilon}{Mm(\Omega)} $\\
+	$ |\sigma^S\{T, \xi \} - \sigma\{ T',\eta \} \leqslant M\sum_i ||[\overline{r_u}(\eta), \overline{r_v}(\eta)]|- |[\overline{r_u}(\eta'),\overline{r_v}(\eta')]||m(\Omega_i) \leqslant M\frac{\varepsilon}{Mm(\Omega)}m(\Omega) = \varepsilon\\
+	\Delta_T \rightarrow 0 \Rightarrow \sigma^S\{T,\xi \} \rightarrow I \leftarrow \sigma\{ T', \eta \}$
+\end{proof}
+\subsection{Определение поверхностного интеграла второго рода}
+$ S = \{ \overline{r} = \overline{r}(u,v), (u,v) \in \overline{\Omega} \} $ ориентированная гладкая поверхность с кусочно гладким краем $ \delta S $, $ \overline{n} = \pm \frac{[\overline{r_u},\overline{r_v}]}{|[\overline{r_u},\overline{r_v}]|},\; R =R(x,y,z) $ определена на $ S $\\
+$ T =\{ S_i \},\; X_i $ --- проекция $ S_i $ на плоскость $ xOy $\\
+Из $ T $ отбрасываем те $ S_i $, которые
+\begin{enumerate}
+	\item не взаимно однозначное отображение на плоскость $ xOy $
+	\item часть $ S_i $ лежит сверху и снизу от поверхности $ S_i $ (согнутый листик)
+\end{enumerate}
+$ T' = \{ S_i \};\; X_i = \pm m(X_i),\; \Delta_T <$ наибольший диаметр множеств $ S_i \in T' $\\
+Ориентация: $ \delta S_i,\; S_i \in T' $, согласована с ориентацией поверхности $ S $, $ \partial X_i $ обходится таким образом, что $ X_i $ остается слева.
+
+Правило выбора знака: $ X_i = \pm m(X_i) $\\
+$ '+' \rightarrow \delta S_i, \partial X_i $ --- ориентированы одинаково\\
+$ '-' \rightarrow \delta S_i. \partial X_i $ --- противоположно ориентированы\\
+$ \overline{\xi_i} \in S_i,\; S_i \in T',\; \xi = \{ \xi_i \} \rightarrow \sigma \{T',\xi,+ \} = \sum_i R(\xi_i) x_i ;\quad \sigma\{T', \xi, -\} = - \sigma\{ T, \xi,+ \}$
+\paragraph{Определение.} Число $ I $ называется пределом суммы $ \sigma \{ T, \xi, + \} $ при $ \Delta_T \rightarrow 0 $, если $ \forall \varepsilon > 0 \; \exists \delta = \delta(\varepsilon) > 0: \forall T': \Delta_{T'} < \delta \& \forall \xi \rightarrow |\sigma\{T', \xi, +\} - I| < \varepsilon $\\
+Если предел $ I $ существует, то о называется поверхностным интегралом второго рода и обозначается: $ I = \iint_S R(x,y,z)dxdy = \iint_S R dxdy $
+\paragraph{Пример.} $ S = \{ z = g(x,y), x,y \in \overline{\Omega} \} $, ориентирована таким образом, что $ \overline{n} $ образует острый угол с $ Oz,\; T = \{ S_i \};,\; T =T',\; R=R(x,y,z),\; \xi_i \in S_i,\; \xi_i(x_i,y_i, g(x_i,y_i))\\
+\sigma\{ T, \xi, + \} = \sum_i R(\xi_i)m(X_i) = \sum_i R(x_i, y_i, g(x_i,y_i))m(X_i)\\ \Delta_T \rightarrow 0 \Rightarrow \iint_\Omega R(x,y,g(x,y,))dxdy = \iint_S R(x,y,z)dxdy $
+\subsection{Общий вид поверхностного интеграла 2-го рода.}
+$ S = \{ \overline{r} = \overline{r}(u,v), (u,v) \in \overline{\Omega} \} $ --- ориентированная гладкая поверхность с кусочно гладким краем $ \delta S $ \\
+$ \overline{n} = \frac{\pm [\overline{r_u},\overline{r_v}]}{|[\overline{r_u},\overline{r_v}]|},\; Q, P  $ на $ S\qquad T = \{S_i \},\; Y_i $ --- проекция $ S_i $ на плоскость $ yOz $\\
+из $ T $ отбрасываем те $ S_i $, которые 
+\begin{enumerate}
+	\item не биективное отображение на плоскость $ yOz $
+	\item Часть $ S_i $ лежит сверху и снизу от поверхности 
+\end{enumerate}
+$ T' = \{S_i \},\; Y_i = \pm m(Y_i),\; \Delta_{T'} $ --- диаметр (наиб) множеств $ S'_i \in T' $
+\[
+\iint_S P(x,y,z) dydz + Q(x,y,z)dzdx + R(x,y,z)dxdy
+\]
+\subsection{Сведение поверхностных интегралов 2-го рода к поверхностному интегралу первого рода.} 
+\begin{theorem}
+	Пусть $ S $ --- ориентированная гладкая поверхность с кусочно гладким краем\\
+	$ P, Q, R $ непрерывна на $ S $, тогда справедлива формула
+	\[
+	\iint_{S} Pdydz + Qdzdx + Rdxdy = \iint_{S} [P\cos (\overset{\wedge}{\overline{n}, i}) + Q\cos(\overset{\wedge}{\overline{n}, j}) + R\cos(\overset{\wedge}{\overline{n}, k})]dS
+	\]
+	\end{theorem} 
+\begin{proof}
+	1) $ S = \{x,y,z: z=g(X,y), (x,y) \in \overline{\Omega} \} $\\
+	Выбрана верхняя сторона поверхности $ S $, $ X_i $ --- полож., $ T = T' $\\
+	$ m(S_i) = \iint_{\Omega_i} \frac{dxdy}{\cos \gamma_i} = \cos \gamma_i^* m(X_i); \quad X+i = m(X_i) = \cos \gamma_i^*\cdot m(S_i)\\ 
+	\xi_i \in S_i,\; \xi = \{\xi_i \}: \sigma\{T, \xi, + \} = \sum_i R(\xi_i)X_i = \sum_i R(\xi_i)\cos \gamma_i^* m(S_i) \\ 
+	\sigma'\{T, \xi \} = \sum_i R(\xi_i)\cos \gamma_i m(S_i),\; \gamma_i^* = \gamma(\xi_i^*),\; \xi_i^* \in S_i,\; \gamma_i = \gamma(\xi_i) $\\
+	$ \cos \gamma $ --- функция неперывна на $ S $\\
+	$ \forall \varepsilon > 0\; \exists \delta = \delta (\varepsilon) > 0: \forall \xi \& \xi'\; \rho(\xi,\xi') < \delta \rightarrow \abs{\cos\gamma(\xi)-\cos\gamma(\xi')} < \frac{\varepsilon}{Mm(\xi)} \\
+	\abs{\sigma\{ \xi, T, + \} - \sigma'\{ T,\xi \}}\leqslant M\frac{\varepsilon}{Mm(\xi)}\sum_im(S_i)=\varepsilon\\ T : \Delta_{T} < \delta\\ \iint_{S}Rdxdy = \iint_{S}R\cos(\overset{\wedge}{\overline{n}, k})dS$\\
+	2) Общий случай
+	 $ T = T' \cup T"  \begin{matrix}  &\sigma \{T', \xi, + \} \underset{\Delta_{T' \rightarrow 0}}{\longrightarrow} \iint_{S}R\cos(\overset{\wedge}{\overline{n}, k}) \\ &\sigma \{T', \xi, + \} \underset{\Delta_{T' \rightarrow 0}}{\longrightarrow} 0  \end{matrix} $
+\end{proof}
+
+\setcounter{theorem}{0}
+\part{Теория поля}
+\section{Элементы векторного анализа}
+\subsection{Скалярные и векторные поля}
+Если в области $ \mathcal{D} \subset \mathbb{E}^3 $ задана функция $ u = u(x,y,z) $, то будем говорить, что в $ \mathcal{D} $ задано \textit{скалярное поле} $ \forall (x,y,z) \in \mathcal{D}, (x,y,z) \rightarrow u $\\
+Если в области $ \mathcal{D} \subset \mathbb{E}^3 $ задана векторная функция $ \overline{a} = (P,Q,R), P = P(x,y,z), Q=Q(x,y,z), R=R(x,y,z) $, то будем говорить, что в области $ \mathcal{D} $ задано \textit{векторное поле} $ \forall (x,y,z) \in \mathbb{D}\; (x,y,z) \rightarrow \overline{a}(P,Q,R) $
+\subsection{Вектор Гамильтона}
+$ \nabla = \left( \pdd{}{x}, \pdd{}{y}, \pdd{}{z} \right) $
+\begin{enumerate}
+	\item Если функция $ u $ или вектор $ \overline{a} $ стоят справа от $ \nabla $, то он действует на них как дифференциальные оператор
+	\item Если функция $ u $ или вектора $ \overline{a} $ стоят слева от $ \nabla $, то получаем новый дифференциальный оператор
+\end{enumerate}
+\paragraph{Пример 1}
+\[ \mathrm{grad} u = \left( \pdd{u}{x}, \pdd{u}{y}, \pdd{u}{z} \right) = \nabla u \]
+\paragraph{Пример 2}
+\[ \mathrm{grad} uv = u\mathrm{grad}v + v\mathrm{grad}u \]
+\paragraph{Пример 3}
+\[ \overline{r} = (x,y,z),\; \rho = \abs{\overline{r}}=\sqrt{x^2+y^2+z^2} \]
+\[ \nabla u(\rho) = \left( \pdd{u}{x}(\rho), \pdd{u}{y}(\rho), \pdd{u}{z}(\rho) \right) = u'(\rho) \cdot \left( \frac{x}{\rho}, \frac{y}{\rho}, \frac{z}{\rho} \right) = \frac{u'(\rho)}{\rho}\overline{r} \]
+\paragraph{Пример 4}
+$ (\nabla, \overline{a}) = \pdd{P}{x} + \pdd{Q}{y} + \pdd{R}{z} = \mathrm{div} \overline{a} $\\
+Эта функция называется дивергенцией векторного поля $ \overline{a} $
+\paragraph{Пример 5}
+\[ 
+[\nabla, \overline{a}]=\begin{vmatrix}
+i & j & k\\ \pdd{}{x} & \pdd{}{y} & \pdd{}{z} \\ P & Q & R 
+\end{vmatrix} = \left( \pdd{R}{y} - \pdd{Q}{z} \right)i + \left( \pdd{P}{z} - \pdd{R}{x} \right)j + \left( \pdd{Q}{x} - \pdd{P}{y} \right)k = \mathrm{rot} \overline{a}
+\]
+\paragraph{Пример 6}
+\[ 
+\mathrm{div} (u\overline{a}) = (\nabla, u\overline{a}) = (\mathrm{grad} u, \overline{a}) + u(\nabla, \overline{a}) = (\mathrm{grad} u,\overline{a}) + u\mathrm{div}\overline{a}
+\]
+\paragraph{Пример 7}
+\[
+\mathrm{div}[\overline{a},\overline{b}] = (\nabla, [\overline{a},\overline{b}]) = (\nabla, \overline{a}, \overline{b}) = (\overline{b},\nabla,\overline{a}) - (\overline{a},\nabla, \overline{b}) = (\overline{b}, \mathrm{rot} \overline{a}) - (\overline{a}, \mathrm{rot} \overline{b})
+\]
+\paragraph{Пример 8}
+\[
+\mathrm{rot}(u,\overline{a}) = [\nabla, u\overline{a}] = [\nabla u,\overline{a}] + u[\nabla, \overline{a}] = [\mathrm{grad} u,\overline{a}] + u\mathrm{rot} \overline{a}
+\]
+\paragraph{Пример 9}
+\[
+\mathrm{rot} [\overline{a},\overline{b}] = [\nabla, [\overline{a},\overline{b}]] = \overline{a}(\nabla, \overline{b}) - \overline{b}(\nabla, \overline{a}) = \overline{a}\mathrm{div} b -\overline{b}\mathrm{div}a+(\overline{b},\nabla)\overline{a} - (\overline{a}, \nabla)\overline{b}
+\]
+\paragraph{Пример 10}
+\[
+[\overline{b}, \mathrm{rot} \overline{a}] = \bigl[\overline{b},[\nabla, \overline{a}]\bigr] = \nabla (\overline{b},\overline{a}) - (\overline{b},\nabla)\overline{a}
+\]
+\paragraph{Пример 11}
+\[
+(\overline{c}, \overline{b}, \mathrm{rot}\overline{a}) = (\overline{c}, [\overline{b},\mathrm{rot} \overline{a}]) = (\overline{c}, \nabla (\overline{b},\overline{a})) - (\overline{c},(\overline{b}\nabla)\overline{a}) =(\overline{b},(\overline{c}\nabla),a) - (\overline{c},(\overline{b}\nabla),\overline{a})
+\]
+\paragraph{Пример 12}
+\[
+\mathrm{div} \mathrm{rot} \overline{a} = (\nabla, \mathrm{rot}\overline{a}) = (\nabla, [\nabla, \overline{a}]) = (\nabla, \nabla, \overline{a}) = 0
+\]
+\paragraph{Пример 13}
+\[
+\mathrm{rot} \mathrm{grad} u = [\nabla, \nabla u] = u [\nabla, \nabla] = 0
+\]
+\section {Формула Остроградского -- Гаусса}
+\subsection{Доказательство формулы}
+\paragraph{Определение.} Область $ D \subset \mathbb{E}^3 $ называется \textit{элементарной относительно оси} $ Oz $ если ее проекция $ \Omega $ на гиперплоскость $ \mathcal{E}_z = \{ (x,y,z): z= 0 \} $ является областю и $ \partial D $ состоит из графиков функция $ z=\psi(x,y),\;z=\varphi(x,y) $ причем $ \psi(x,y)\leqslant \varphi(x,y)\, \forall(x,y) \in \overline{\Omega} $ и, быть может, цилиндрическая поверхность, образующая которой параллельна $ Oz $ и направляющей ее является $ \partial\Omega $ \\
+$ D = \{ (x,y,z)\in\mathbb{E}^3:\psi(x,y)\leqslant z \leqslant \varphi(x,y), (x,y) \in \overline{\Omega} \} $
+\paragraph{Замечание.} Элементарная относительно $ Oz $ область $ \mathcal{D} $ измерима, если $ \Omega $ --- измерима, и $ \varphi, \psi $ непрывны на $ \overline{\Omega} $.
+\begin{theorem} % Теорема 1
+	Если измеримая область $ \mathcal{D} \subset \mathbb{E}^3$ элементарна относительно трех координатных осей одновременно, $ \partial \mathcal{D} $ ориентирована внешней нормалью $ \overline{n} $, векторное поле $ \overline{a} = (P,Q,R) $ непрерывно дифференцируема в $ \overline{\mathcal{D}} $, то справедлива формула Остроградского--Гаусса:
+	$$ \iint_{\partial\mathcal{D}} Pdydz +Qdzdx + Rdxdy = \iiint_\mathcal{D} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right)dxdydz $$ 
+\end{theorem}
+\begin{proof}
+	$ \iint_\mathcal{D} \frac{\partial R}{\partial z}dxdydz=$ этот интеграл существует в силу наложенных ограничений на поле $ = \iint_{\Omega} dxdy\int_{\psi(x,y)}^{\varphi(x,y)}\frac{\partial R}{\partial z}dz=\iint_{\Omega}R(x,y,\varphi(x,y))dxdy-\iint_{\Omega}R(x,y,\psi(x,y)) dxdy = \iint_{S_1}R(x,y,z)dxdy\hm{+}\iint_{S_2}R(x,y,z)dxdy + \iint_{S} R(x,y,z)dxdy;\\ \; S_1 =\{ (x,y,z):z=\varphi(x,y), (x,y)\in \overline{\Omega} \},\\ S_2 =\{ (x,y,z): z =\psi(x,y),\; (x,y)\in\overline{\Omega} \};\\ S = \{ (x,y,z): (x,y)\in X \subset\partial\Omega \} \; n \perp Oz \rightarrow \iint_{S} R(x,y,z)dxdy=0 $ 
+	
+	Тогда наш интеграл равен $ \iint_{S_1}R(x,y,z)dxdy + \iint_{S_2}R(x,y,z)dxdy + \iint_S R(x,yz)dxdy = \iint_{\partial D}R(x,y,z)dxdy $
+\end{proof}
+
+$ \iint_{S}Pdydz + Qdzdx + Rdxdy= \iint_{S}(P\cos \alpha + Q \cos \beta + R \cos \gamma)dS = \iint_{S}(\overline{a},\overline{n})dS$ --- этот интеграл будем называть потоком векторного поля $ a $ через поверхность $ S $ в направлении вектора нормали.
+
+$ \iint_{\partial \mathcal{D}} (\overline{a},\overline{n})dS = \iiint_\mathcal{D}div \overline{a} d\mathcal{D} $ --- формула Остроградского--Гаусса
+\subsection{Приложения формулы Остроградского--Гаусса}
+\begin{enumerate}
+	\item $ m(\mathcal{D}) = 1/3\iint_{\partial\mathcal{D}} xdydz + ydzdx+zdxdy $
+	\item Инвариантность div $ \overline{a} $
+\end{enumerate}
+	\begin{theorem}%Теорема 2
+		Пусть $ \overline{a} $ --- непрерывно дифференцируемое в $ \overline{\mathcal{D}} $ векторное поле. $ S_{\varepsilon}(M_0) $ --- шар с центром в $ M_0 $ и радиусом $ \varepsilon $, причем $ \overline{S_\varepsilon(M_0)}\subset \mathcal{D} $, тогда div $ \overline{a} = \lim\limits_{\varepsilon \rightarrow 0}  \dfrac{\iint_{\partial S_\varepsilon(M_0)}(\overline{a},\overline{n})dS}{m(S_\varepsilon(M_0))} $
+	\end{theorem}
+	\begin{proof}
+		$ \iiint_{ {S_\varepsilon(M_0)}}\mathrm{div} \overline{a} d\mathcal{D} = \iint_{\partial S_\varepsilon(M_0)}  (\overline{a},\overline{n})dS$\\[0.5em]
+		$ \exists M^* \in S_\varepsilon(M_0):
+		\mathrm{div} \overline{a}(M^*) \cdot m(S_\varepsilon(M_0)) = \iint_{\partial S_\varepsilon(M_0)} (\overline{a},\overline{n}) dS \\[0.5em]
+		\mathrm{div} \overline{a}(M^*) = \dfrac{\iint_{\partial S_\varepsilon(M_0)}(\overline{a},\overline{n})dS}{m(S_\varepsilon(M_0))} \quad \varepsilon \rightarrow 0 : M^* \rightarrow M_0$
+	\end{proof}
+
+\subsection{Соленоидальные векторные поля.}
+\paragraph{Определение.} Область $ \mathcal{D} \in \mathbb{E}^3 $ называется объемно--односвязной областью, если любая замкнутая поверхность $ S \subset \mathcal{D} $ является границей области $ \mathcal{D'} \subset \mathcal{D} $
+\paragraph{Замечание.} Из определения следует, что $ \partial \mathcal{D} $ объемно--односвязной области является связным множеством.
+\paragraph{Определение.} Непрерывное векторное поле $ \overline{a} $ заданное в области $ \mathcal{D} $ называется соленоидальным, если поток векторного поля через любую замкнутую кусочно гладкую поверхность $ S \subset \mathcal{D}$ равен нулю: $ \iint_{S}(\overline{a},\overline{n})dS = 0$ 
+\begin{theorem}%Теорема 3
+	Для того, чтобы непрерывно дифференцируемое векторное поле $ \overline{a} $ было соленоидальным в области $ \mathcal{D} $ необходимо, а в случае объемной односвязной области и достаточно, чтобы $ \mathrm{div} \overline{a} = 0 $ в $ \mathcal{D} $
+\end{theorem}
+\begin{proof}
+	\textbf{Необходимость} $ \overline{a}  $ --- соленоидальна в $ \mathcal{D} $
+	
+	$ \forall M_0 \in \mathcal{D} \; S_\varepsilon(M_0) \subset \mathcal{D}\quad \mathrm{div} \overline{a}(M_0) = \lim\limits_{\varepsilon\rightarrow 0} \dfrac{\iint_{\partial S_\varepsilon(M_0)}(\overline{a},\overline{n})}{m(S_\varepsilon(M_))} = 0 $
+	
+	\textbf{Достаточность.} $ \forall S \subset \mathcal{D} \; \iint_{S}(\overline{a},\overline{n})dS = \iiint_{\mathcal{D'}} \mathrm{div} \overline{a} dD\Rightarrow \overline{a}$ --- соленоидальна.
+\end{proof}
+\paragraph{Пример.} $ \overline{r} = (x,y,z).\; \rho = \abs{\overline{r}}=\sqrt{x^2+y^2+z^2} $\\
+$ \overline{a}  = \nabla\frac{1}{\rho} = -\frac{\overline{r}}{\rho^3}$\\
+$ \mathrm{div} \overline{a} = (\nabla, -\frac{\overline{r}}{\rho^3}) = -(\nabla\frac{1}{\rho^3},\overline{r})-\frac{1}{\rho^3}(\nabla, \overline{r}) = \frac{3}{\rho^5}(\overline{r},\overline{r}) - \frac{3}{\rho^3} = \frac{3}{\rho^3}-\frac{3}{\rho^3}=0$\\
+$ \iint_{S}(\overline{a},\overline{n})dS = \iint_{S} (-\frac{\overline{r}}{R^3},\frac{\overline{r}}{R})dS = -\frac{1}{R^2}\iint_{S}dS = -4\pi \neq 0 $\\
+$ S: x^2 + y^2 +z^2 =R^2  $
+\section{Формула Стокса.}
+\subsection{Простая гладкая поверхность.}
+$ S = \{ \overline{r} = \overline{r} (u,v),\; (u,v) \in \overline{\Omega} \} $
+\begin{enumerate}
+	\item  $ r $ дважды непрерывно дифференцируема в $ \overline{\Omega} $
+	\item $ \partial \Omega $ --- кусочно гладкая поверхность, следовательно $ \partial S $ --- кусочно гладкая
+	\item Ориентация края $ \delta S $ согласованно с ориентацией нормали поверхности $ S $
+	\item В $ \mathcal{D} $ задано непрерывно дифференцируемое векторное поле $ \overline{a} = (P,Q,R) $ 
+\end{enumerate}
+$ \int_{\delta S} Pdx + Qdy + Rdz = \int_{\delta S} (\overline{a}, d\overline{r})$
+\setcounter{theorem}{0}
+\begin{theorem}
+	При заданных условиях 1 -- 4 циркуляция векторного поля $ \overline{a} $ вдоль кривой $\delta S $ равна потоку вихря векторного поля $ \overline{a} $ через ту сторону поверхности $ S $, с которой обход $ \delta S $ виден по ходу часовой стрелки.
+	$$ \int_{\delta S} (\overline{a},d\overline{r}) = \iint_{S} (\mathrm{rot} \overline{a}, \overline{n})dS$$
+\end{theorem}
+\begin{proof}
+	$ \overline{c}, \overline{b}, \mathrm{rot} \overline{a} = (\overline{b},(\overline{c}, \nabla)\overline{a}) - (\overline{c},(\overline{b},\nabla)a) $
+	
+	$ S = \{ \overline{r} = \overline{r}(u,v), (u,v) \in \overline{\Omega} \} $\\
+	$ \partial \Omega  = \{u=\varphi(t), v = \psi(t), \alpha \leqslant t \leqslant \beta  \} $\\
+	$ \delta S = \{ \overline{r} = \overline{r}(\varphi(t)), \psi(t)), \alpha \leqslant t \leqslant \beta  \} $
+	
+%	Выбираем направление $ \overline{n} $ таким образом, что положительный обход 
+	
+	$ \int_{\delta S} (\overline{a}, dr) = \int_\alpha^\beta ( \overline{a}(\varphi(t), \psi(t)), \overline{r_u}(\varphi(t), \psi(t)) \varphi'(t) + \overline{r_v}(\varphi(t), \psi(t))\psi'(t))dt = \int_{\partial \Omega} (\overline{a}, \overline{r_u})du + (\overline{a},\overline{r_v})dv\hm{=}\iint_\Omega \left[ \frac{\partial}{\partial u}(\overline{a},\overline{r_v}) - \frac{\partial}{\partial u}(\overline{a},\overline{r_u})\right]dudv = \iint_\Omega \left[ (\frac{\partial \overline{a}}{\partial x} x_u + \pdd{\overline{a}}{y}y_u + \pdd{\overline{a}}{z}z_u, \overline{r_v} ) -(\frac{\partial \overline{a}}{\partial x} x_v + \pdd{\overline{a}}{y}y_v + \pdd{\overline{a}}{z}z_v, \overline{r_u} ) \right] \hm{=} \iint_\Omega \left[((r_u \nabla)\overline{a},\overline{r_v}) - ((\overline{r_v} \nabla)\overline{a},\overline{r_u})\right] dudv  \hm{=} \iint_{\Omega} (\overline{r_u}, \overline{r_v}, \mathrm{rot} \overline{a} )dudv = \iint_{\Omega}\left(\mathrm{rot} \overline{a}, \frac{\left[ \overline{r_u},\overline{r_v} \right] }{\abs{\left[ \overline{r_u},\overline{r_v} \right]}}\right) \abs{\left[ \overline{r_u},\overline{r_v} \right]} dudv \hm{=} \iint_{S} (\mathrm{rot} \overline{a}, \overline{n})dS$
+\end{proof}
+\subsection{Кусочно гладкая поверхность.}
+%$ (\overline{c}, \overline{b}, \mathrm{rot} \overline{a}) = (\overline{b}, (\overline{c},\nabla)\overline{a}) - (\overline{c},(\overline{b}\nabla)\overline{a}) $\\
+$ S =  $ $\overset{k}{\underset{i=1}{\cup}}$ $ S_i, \delta S_i $ \\
+$ \sum_{i=1}^{k}\oint_{\partial S_i}(\overline{a}, d\overline{r})= \sum_{i=1}^{n}\iint_{S_i}(\mathrm{rot} \overline{a},\overline{n})dS \\ \oint_{\partial S}(\overline{a}, d\overline{r}) = \iint_{S}(\mathrm{rot} \overline{a}, \overline{n})dS $\\
+На каждой $ S_i $ свой $ \overline{n} \Rightarrow$ формула Стокса остается справедливой 
+\subsection{Инвариантность $ \mathrm{rot} \overline{a} $} 
+$ \mathcal{D} \subset \mathbb{E}^3 $, непрерывно дифференцируемое векторное поле $ \overline{a} $\\
+$ M_0(\overline{r_0})=M_0 \subset \mathcal{D}, \overline{n},\; \prod: (\overline{r} - \overline{r_0}, \overline{n}) = 0 $\\
+$ S_\varepsilon(M_0) \subset \prod, \partial S_\varepsilon(M_0) $ --- ориентирована положительно, обход согласован с $ \overline{n} $\\
+$ \oint_{\partial S_\varepsilon(M_0)} (\overline{a}, d\overline{r}) = \iint_{\partial S_\varepsilon(M_0)}(\mathrm{rot} \overline{a}, \overline{n})dS $\\
+$ (\mathrm{rot} \overline{a}, \overline{n})(M^*)m(S_\varepsilon(M_0)) = \oint_{\partial S_\varepsilon(M_0)}(\overline{a}, d\overline{r}) $\\[0.5em]
+$ (\mathrm{rot} \overline{a},\overline{n})(M_0) = \lim\limits_{\varepsilon \rightarrow 0} \dfrac{\oint_{\partial S_\varepsilon(M_0)} (\overline{a}, d\overline{r})}{m(S_\varepsilon(M_0))} $
+\begin{theorem}
+	Если в области $ \mathcal{D} $ задано непрерывное дифференцируемое векторное поле $ 
+	\overline{a} $ и в нем выбрана точка $ M_0 $ в которой задан вектор нормали $ \overline{n} $ и построена плоскость проходящая через эту точку и в ней выбран круг, ориентированный положительно, то выполнена формула
+	\[
+	(\mathrm{rot} \overline{a}, \overline{n}) (M_0) = \lim\limits_{\varepsilon\rightarrow0} \frac{\oint_{\partial S_\varepsilon(M_0)}(\overline{a},d\overline{r})}{m(S_\varepsilon(M_0))}
+	\]
+\end{theorem}
+\subsection{Потенциальные векторные поля.}
+В $ \mathcal{D} \subset \mathbb{E}^3 $ задано непрерывное векторное поле $ \overline{a} $
+\paragraph{Определение.} Непрерывное векторное поле $ \overline{a} $ называют потенциальным, если существует такая функция $ u $, что $ \overline{a} = \mathrm{grad} u $
+\begin{theorem}
+	Пусть в области $ \mathcal{D} \subset \mathbb{E}^3$ задано непрерывное дифференцируемое поле $ \overline{a} $, тогда следующие условия эквивалентны:
+	\begin{enumerate}
+		\item  $ \oint_\varGamma (\overline{a}, d\overline{r})=0 $, для любой кусочно гладкая замкнутой кривой $ \varGamma \subset \mathcal{D} $
+		\item $ \int_\varGamma (\overline{a},d\overline{r}) $, $ \varGamma $ --- кусочно гладкая кривая, соединяющая точки A, B, $ \varGamma \subset \mathcal{D} $ не зависит от кривой $ \varGamma  $ (для любых точек $ A,B\in\mathcal{D} $)
+		\item Поле $ \overline{a} $ --- потенциальное.	
+	\end{enumerate}
+\end{theorem}
+* --- \textit{доказательство аналогично плоскому случаю}
+\paragraph{Определение.} Область $ \mathcal{D}\subset\mathbb{E}^3 $ называется поверхностно односвязной, если на любой кусочно гладкий контур $ \gamma \subset \mathcal{D} $ можно натянуть поверхность $ S $, лежащую в области $ \mathcal{D} $
+\paragraph{Замечание.} Шар с выколотой точкой не является объемно--односвязной областью, но этот шар является поверхностно односвязной областью. 
+Тор является объемно--односвязной областью , но не является поверхностно--односвязной областью.
+\begin{theorem}
+	Для потенциальности непрерывно дифференцируемого векторного поля $ \overline{a} $, определенного в области $ \mathcal{D} \subset \mathbb{E}^3$, необходимо, а в случае поверхностно односвязанности достаточно, чтобы векторное поле $ \overline{a} $ было безвехревым, т.е. $ \mathrm{rot} \overline{a} = \overline{0} $
+\end{theorem}
+\begin{proof}
+	\textbf{Необходимость.} $ \exists u: \quad \overline{a} = \mathrm{grad} u $ в $ \mathcal{D} \subset \mathbb{E}^3 \; \overline{a} = \nabla u\;\; \mathrm{rot}\overline{a} =[\nabla,\nabla u] = \overline{0}$
+	\textbf{Достаточность.} $ \mathrm{rot} \overline{a} = \overline{0}\\ \forall \gamma \subset \mathcal{D}$, кусочно гладкий контур $ \gamma = \delta S, S \subset \mathcal{D} $\\
+	$ \oint_\gamma (\overline{a}, d\overline{r}) = \iint_{S} (\mathrm{rot} \overline{a}, \overline{n})dS = 0 $, тогда $ 1 \Leftrightarrow 3 $
+\end{proof} 
+\paragraph{Замечание.} В случае отсутствия поверхностной односвязанности $ \mathcal{D} $ из $ \mathrm{rot} \overline{a} = 0 \cancel{\Rightarrow}  $ потенциальность\\$ \overline{a} = \left( -\frac{y}{x^2 + y^2}, \frac{x}{x^2 + y^2},z \right) $ определяет $ \mathbb{E}^3\backslash \{Oz\},\quad \mathrm{rot} \overline{a} = \overline{0} $\\
+$ \gamma: \{ x^2 + y^2 = 1, z=0 \},\;\; \oint_\gamma(\overline{a}, d\overline{r}) = \oint_\gamma -\frac{y}{x^2 + y^2}dx + \frac{x}{x^2 + y^2}dy + zdz = 2\pi \neq 0 \Rightarrow $ нет потенциальности поля.
+
+%\newpage
+%\setcounter{section}{0}
+%\part{Четвертый мать его семестр.}
+%\section{Ряды Фурье.} 
+%\subsection{Пространства интегрируемых функций.}
+%$ X = \{a,b\}: [a,b],(a,b),[a,b), (a,b] $, может быть $ a = - \infty,\; b = +\infty $
+%\paragraph{Определение.} Функция $ y = f(x) $ называется абсолютно интегрируемой на промежутке $ X $, если $ \int_X \abs{f}dx $ сходится.
+%\paragraph{Обозначения.} Совокупность абсолютно интегрируемых функция обозначается $ L^1_R(X) $
+%\paragraph{Замечание} Если $ f $ интегрируема на $ [a,b] $, то $ \abs{f} $ --- интегрируема на $ [a,b] $. В обратную сторону утверждение неверно.
+%$$ {\widetilde{\mathcal{D}}(x)} = \begin{cases}
+%1&, x \in \mathbb{Q}\\ -1&, x \in \mathbb{J}
+%\end{cases} $$ 
+%Если $ f $ неограничена на промежутке $ X $ или $ X $ --- бесконечное множество. 
+%\paragraph{Замечание.} На $ L^1_R(X) $ можно определить операции сложения функция и умножения функции на действительное число. Тем самым $ L_R(X) $ превращается в линейное пространство.
+%\paragraph{Определение.} Функция $ f \in L^1_R(X) $ называется абсолютно интегрируемой с квадратом, если $ \int_X \abs{f}^2dx $ сходится. ($ \abs{f}^2 \in L^1_R(X) \Rightarrow f \in L^2_R(X)$)\\
+%* -- $ f: X\rightarrow \mathbb{R} \Rightarrow \abs{f}^2 = f^2 $\\
+%НО $ f^ X \rightarrow \mathbb{C} \Rightarrow \abs{f}^2 \neq f^2 $
+%\paragraph{Пример.} $ f(x) = \frac{1}{\sqrt{x}}, \; X = (0,1],\; f \in L^1_R(X),\; f^2 \notin L^1_R(X) $
+%\paragraph{Предложение.} $ L^2_R(X) $ --- линейное пространство.
+%\begin{proof}
+%	$ f, g \in L^2_R(X),\; \alpha f + \beta g \in L^2_R(X)  $\\
+%	$ 2\abs{f\cdot g} \leqslant f^2 + g^2 \& f, g \in L_R^2(X) \Rightarrow f\cdot g \in L_R^1(X) $ 
+%\end{proof}
+%$ (f,g) = \int_{a}^{b}f\cdot g dx $
+%\paragraph{Определение.} $ x, y \in M,\; x\mathcal{R}y $ --- элемент $ x $ находится в отношении $ \mathcal{R} $ с элементом $ y $. Отношение $ \mathcal{R} $ называется отношением эквивалентности если 
+%\begin{enumerate}
+%	\item $ x\mathcal{R}x $ --- рефлексивность
+%	\item $ x\mathcal{R}y \Rightarrow y \mathcal(r) x $ --- симметричность
+%	\item $ x\mathcal{R}y,\, y\mathcal{R}z \Rightarrow x\mathcal{R}z $ --- транзитивность
+%\end{enumerate}
+%$ M / \mathcal{R} $ --- фактор--пространство --- совокупность классов эквивалентности\\
+%$ x\mathcal{R}y $ --- эквивалентные элементы, $ x \sim y $\\
+%$ f\mathcal{R}g = \int_{a}^{b} (f-g)^2dx = 0\; f,g \in L_R^2(x)$
+%\begin{sentence}
+%	$ \mathcal{R_0} $ --- отношение эквивалентности
+%\end{sentence}
+%\begin{proof}Докажем транзитивность: 
+%	$ f\mathcal{R}_0g,\; g\mathcal{R}_0h \Rightarrow f\mathcal{R}_0h $\\
+%	$ \abs{(f-h)^2} = \abs{[(f-g) + g-h]^2}\leqslant 2\left[ (f-g)^2+(g-h)^2 \right] $
+%\end{proof}
+%$ L^2_R(X) / \mathcal{R}_0 = \mathcal{L}_R^2(X) $
+%\begin{sentence}
+%	$ \mathcal{L}_R^2(X)  $ --- линейное пространство: $ f \sim \tilde{f},\, g \sim \tilde{g} \Rightarrow h \sim \tilde{h} $, где $ h = \alpha f + \beta g,\; \alpha, \beta \in \mathbb{R},\; \tilde{h} = \alpha \tilde{f} + \beta \tilde{g} $
+%\end{sentence}
+%\begin{proof}
+%	$ \abs{(h-\tilde{h})^2} \leqslant(\alpha^2 + \abs{\alpha}\cdot\abs{\beta})(f-\tilde{f})^2 + (\beta^2 + \abs{\alpha}\cdot\abs{\beta})(g-\tilde{g})^2 $
+%\end{proof} %\left( \right)
+%\begin{sentence}
+%	Если $ f \sim \tilde{f},\; g \sim \tilde{g} $, то $ (f,g) = (\tilde{f}, \tilde{g}) $
+%\end{sentence}
+%\begin{proof}
+%	Неравенство Коши--Буняковского: $ \abs{(f,g)} \leqslant\sqrt{\left(f,f\right)}\cdot\sqrt{\left(g,g\right)} $\\
+%	$ 0 \leqslant \abs{(f,g) - \left(\tilde{f},\tilde{g}\right)} = \abs{(f,g) - \left( f,\tilde{g} \right) + \left( f,\tilde{g}\right) - \left(\tilde{f}, \tilde{g}\right)} \leqslant\\ \leqslant \sqrt{(f,f)}\sqrt{\left(g-\tilde{g},g-\tilde{g}\right)} + \sqrt{\left(\tilde{g},\tilde{g}\right)}\sqrt{\left(f-\tilde{f},f-\tilde{f}\right)}  $
+%\end{proof}
+%
+%\paragraph{Определение.} Линейное пространство $ L $ называется нормированным пространством, если на $ L $ введена функция $ ||\cdot|| $ называемая нормой, обладающая следующими свойствами $ (\forall x,y \in L\; \& \forall \alpha \in \mathbb{R}) $
+%\begin{enumerate}
+%	\item $ ||x+y|| \leqslant ||x|| + ||y|| $
+%	\item $ ||\alpha x|| = |\alpha| ||x|| $
+%	\item $ ||x|| \geqslant0,\; ||x|| =0 \Leftrightarrow x = 0 $
+%\end{enumerate}
+%\paragraph{Замечание.}  $ \mathcal{N} = ( L, ||\cdot||) $ превращается в метрику $ \mathcal{M} = (L, \rho) $, если $ \rho(x,y) = ||x - y|| $\\$ \varepsilon = (L, (\cdot,\cdot)) $ превращаю в $ \mathcal{N} = (L, ||\cdot||), ||x|| = \sqrt{(x,x)} $
+%
+%Например $ L_R^2(X)/\mathbb{R}_0 = \mathcal{L}_R^2(X), ||f||^2 = \sqrt{\int_{a}^{b}f^2dx} \\ L_R^1(X)\; f \overset{\widetilde{\mathcal{R}_0}}{\sim} g \Leftrightarrow \int_{a}^{b}\abs{f-g}dx = 0,\qquad L_R^1(X) / \widetilde{\mathcal{R}_0} = \mathcal{L}^1_R(X),\; ||f||_1 = \int_{a}^{b}|f|dx$
+%\begin{sentence}
+%	Если $ f \in \mathcal{L}^2_R(X) \Rightarrow ||f||_! \leqslant \sqrt{(b-a)}||f||_2 $
+%\end{sentence}
+%\begin{proof}
+%	$ ||f||_1 = \int_{a}^{b}|f \cdot 1|dx = \sqrt{\int_{a}^{b} f^2dx}\sqrt{\int_{a}^{b}1\cdot dx} = \sqrt{b-a}||f||_2 $
+%\end{proof}
+%\paragraph{Замечание.} $ \mathcal{L}_R^2(X) \subset \mathcal{L}_R^1(X) $
 \end{document}

@@ -1,0 +1,90 @@
+\section{Кратные интегралы}\vspace{-10pt}
+\subsection{Определения и свойства}
+\setcounter{theorem}{0}
+\begin{determenition}\vspace{-10pt}
+	Совокупность измеримых открытых множеств $T=\{\Omega_k \}_{k=1}^n $ называется разбиением множества $\Omega$, если:
+	\begin{enumerate}\vspace{-10pt}
+		\item $\Omega_k\subset \Omega, \; k=\overline{1,n} $\vspace{-10pt}
+		\item $\Omega_k\cap \Omega_j = \emptyset $, если $k\ne j $\vspace{-10pt}
+		\item $\cup_{k=1}^n \overline{\Omega}_k = \overline{\Omega}$
+	\end{enumerate}
+\end{determenition}
+
+\begin{determenition}\vspace{-10pt}
+	$\Delta(\Omega)=\sup_{x,y\in \Omega}\rho(x,y)$ - диаметр множества. ($\Omega  $ - огранич. мн-во)
+\end{determenition}
+
+\begin{determenition}\vspace{-10pt}
+	Число $\Delta_T=\max_{1\leq k \leq n} \Delta(\Omega_k) $ - называется  мелкостью разбиения $T=\{\Omega_k\}_{k=1}^n$ 
+\end{determenition}
+
+\begin{determenition}\vspace{-10pt}
+	Разбиение $T'=\{\Omega_j'\} $ - называется измельчением разбиения $T=\{\Omega_k\}$ если $\forall \Omega_j'\subset T \;\; \exists \Omega_k\subset T: \Omega'_j\subset \Omega_k $
+\end{determenition}
+
+\paragraph{Свойства измельчения:}\vspace{-10pt}
+\begin{enumerate}\vspace{-10pt}
+	\item Если $T'$ измельчение $T$, а $T''$ - измельчение $T'$ то $T'$ измельчение $T''$\vspace{-10pt}
+	\item Для двух разбиений $T'=\{\Omega_k'\}$ и $T''=\{\Omega_j''\}$ множества $\Omega \;$  $\exists $ разбиение $T $ множества $\Omega \;$, что Т будет измельчением разбиений $T'$ и $T''$
+\end{enumerate}
+
+\paragraph{Замечание:}\vspace{-10pt}
+	Если $G=\cup^p_{j=1} Q_j $ клеточное множество и $\Omega \subset G $  то в качестве разбиения множества $\Omega $ можно взять $T=\{\Omega_k \} $, где $\Omega_k = \Omega\cap int(Q_k), \; k=\overline{1,p} $
+
+\subsection{Интегральные суммы. Кратный интеграл Римана. \\Необходимое усл. существования кр. интеграла Римана}
+$T=\{\Omega_k \}_{k=1}^n,  \omega=f(x), x\in \mathbb{E}$, опред. на $\overline{\Omega}; \;\;\xi = \{\xi_1, \dots, \xi_n \}: \xi \in \overline{\Omega_k} $
+
+\begin{determenition}\vspace{-10pt}
+	$I\{T, \xi\} = \sum\limits_{k=1}^n f(\xi_k)m(\Omega_k) - $ интегральная сумма функции $f$
+\end{determenition}
+
+\begin{determenition}\vspace{-10pt}
+	$m(\Omega_k)$ - мера множества $ \Omega_k$
+\end{determenition}
+
+
+\begin{determenition}\vspace{-10pt}
+	Число $I$ называется пределом интегральных сумм $I\{T,\xi \} $, при мелкости разбиения стремящейся к 0, если:\vspace{-10pt}
+$$\forall \varepsilon>0 \exists \delta=\delta(\varepsilon)>0: \; \forall T: \Delta_T< \delta\;\&\; \forall \varepsilon \Rightarrow  |I\{T,\xi \} - T|< \varepsilon$$
+\end{determenition}
+
+\begin{determenition}[Кратный интеграл Римана]\vspace{-10pt}
+	Число $I $, являющееся пределом интегральных сумм при $\Delta_t\rightarrow 0$ называется кратным интегралом Римана функции $f$ по множеству $\Omega \; [\;\overline{\Omega}\;]$. А функция $f$ называется интегрируемой по риману по множеству $\Omega \; [\;\overline{\Omega}\;].$
+\end{determenition}\vspace{-20pt}
+\vspace{-10pt}
+\paragraph{Обозначение:} $\int\limits_\Omega f(x) d\omega = \int...\int_\Omega f(x_1, \dots, x_m) dx_1\dots dx_m =\int...\int_\Omega f dx_1\dots dx_m   $
+\begin{theorem}\vspace{-5pt}
+	Пусть $\Omega\subset \mathbb{E}^mf $ - измеримая область, а $\omega = f(x)  $ опред. и инт. на $\overline{\Omega} $ тогда эта функция ограничена на $\overline{\Omega} $
+\end{theorem}
+
+% А эта теорема вообще нужна? %
+\vspace{-10pt}
+\paragraph{Пример:} $\omega=f(x)\equiv c; \; \forall x\in \overline{\Omega}, \; \Omega $ - измеримое множество. \\
+$\forall T=\{\Omega_k  \}_{k=1}^n \; \forall \xi \;\; I=\{T, \xi \}= \sum_{k=1}^n C\cdot m(\Omega_k) =  C\cdot m(\Omega)$
+\vspace{-10pt}
+\begin{theorem}
+	 Пусть $\Omega\subset \mathbb{E}^m $ - измеримая область, $\omega=f(x)  $ опр. и огр на $\overline{\Omega}. \;\; f(x)\equiv 0 $ на $\overline{\Omega}\backslash \Gamma, \; m(\Gamma)=0, $ тогда f интегрируема на $\Omega$ и $\int_\Omega fd\omega=0 $
+\end{theorem}\vspace{-20pt}\begin{proof}
+	$\exists c>0 : \forall x\in \overline{\Omega} \rightarrow |f(x)|\leq c $\\
+	$\forall \varepsilon>0 \exists G_\varepsilon= \cup_{j=1}^p Q_j : \Gamma \subset G_\varepsilon  $ и $0\leq m\Gamma \leq m(G_\varepsilon) < \frac{ \varepsilon}{c} $\\
+	$T=\{\Omega_k  \}_{k=1}^n, \widetilde{T}=T'\cup T'' = \{\Omega_k' \}\cup\{\Omega_j'' \}; \;$  где $\Omega_k'=\Omega_k\backslash \overline{G_\varepsilon}   $ и $\Omega_j''= \Omega_j\cap (int (Q_i)), i=\overline{1,p}, j= \overline{1,n}.$  
+	И т.к. на $\Omega_k' $ функция $f(x)\equiv0$, а $\Omega_j'' $ содержит точки из $\Gamma$ получим:\\
+	$\forall \xi \rightarrow |I\{\widetilde{T}, \xi \}|= |\sum_j f(\xi_i)m (\Omega_j'') |\leq c\cdot m(G_\varepsilon) < c\cdot \frac{\varepsilon}{c} = \varepsilon $
+\end{proof}\vspace{-30pt}
+\subsection{Суммы Дарбу. критерий интегрируемости.\\ Интеграл непрерывных функций}
+
+$\Omega \subset \mathbb{E}^m $ измеримая область. $\omega=f(x) $ определена и ограниченна на $\overline{\Omega}.\; T=\{\Omega_k \}_{k=1}^n $ - разбиение $\Omega$. $m_k=\inf_{x\in \overline{\Omega}_k} f(x) , M_k=\sup_{x\in \overline{\Omega}_k} f(x)$\\
+$S_*(T)=\sum_{k=1}^n m_k m(\Omega_k); \; S^*(T)=\sum_{k=1}^n M_k m(\Omega_k); \;  $ - \textbf{ нижняя и верхняя  суммы Дарбу}
+ 
+\begin{theorem}[Критерий интегрируемости]
+	Пусть $\omega\subset \mathbb{E}$ - измеримая область, а функция $\omega=f(x)$ опр. и огр. на $\overline{\Omega}$. Для того, чтобы $f $ была интегрируема на $\Omega$ необходимо и достаточно чтобы $\boxed{\forall \varepsilon>0\; \exists T: |S^*(T) - S_*(T)|<S |} $
+\end{theorem}
+
+\begin{theorem}[Интегрируемость функции, непрерывной на замкнутом измеримом мн-ве]
+	Функция $\omega=f(x)$ непр. на замыкании измеримой области $\Omega $ интегрируема на ней.
+\end{theorem}
+
+
+
+
+% доказательств на лекции не было. А они нужны вообще?%

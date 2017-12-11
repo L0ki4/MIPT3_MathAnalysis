@@ -1,9 +1,9 @@
 \section{Формула Грина.}
 \subsection{Вывод формулы.}
-
+\setcounter{theorem}{0 }
 \begin{minipage}{50mm}
 \begin{figure}[H]
-\includegraphics[width=50mm]{img1}
+\includegraphics[width=50mm]{img1.png}
 \end{figure}
 \end{minipage}
 ~
@@ -29,7 +29,7 @@ $
 ~
 \begin{minipage}{50mm}
 	\begin{figure}[H]
-		\includegraphics[width=50mm]{img2}
+		\includegraphics[width=50mm]{img2.png}
 	\end{figure}
 \end{minipage}
 
@@ -42,8 +42,8 @@ $$ \iint_\Omega\left[\frac{\partial Q}{\partial x}(x,y)-\frac{\partial P}{\parti
 \begin{theorem_nu}[\textbf{1'}]\label{th:1'} Если граница $\partial \Omega$ ограниченной области $\Omega\subset \mathscr{E}^2$ состоит из конечного числа кусочно гладких контуров и эти функции непрерывны, то имеет место формула Грина:
 $$ \iint_\Omega\left[\frac{\partial Q}{\partial x}(x,y)-\frac{\partial P}{\partial y}(x,y)\right]dxdy=\int_{\partial\Omega}P(x,y)dx+Q(x,y)dy $$
 \end{theorem_nu}  
-\section{Некоторые приложения формулы Грина.} 
-\subsection*{A. Вычисление плоских измеримых областей.} 
+\subsection{Некоторые приложения формулы Грина.} 
+\subsubsection*{A. Вычисление плоских измеримых областей.} 
 \begin{sentence} Если граница $\partial \Omega$ ограниченной области $\Omega\subset \mathscr{E}^2$ состоит из конечного числа кусочно гладких контуров, то ее $m(\Omega)$ определяется из формулы:
 \end{sentence}
 \begin{equation*}
@@ -51,10 +51,10 @@ m(\Omega)=1/2\int_{\partial\Omega}\left[xdy-ydx\right]
 \end{equation*} 
 \begin{proof} По формуле Грина $\int_{\partial\Omega}\left[xdy-ydx\right]=2\iint_\Omega dxdy=2m(\Omega)$
 \end{proof}
-\subsection*{B. Условия, при которых дифференциальное выражение(дифф. форма) $Pdx+Qdy$ является дифференциалом некоторой функции $f= \\=f(x,y)$} 
+\subsubsection*{B. Условия, при которых дифференциальное выражение(дифф. форма) $Pdx+Qdy$ является дифференциалом некоторой функции $f= \\=f(x,y)$} 
 \begin{theorem}\label{th:2}Пусть область $\Omega\subset\mathscr{E}^2$ --- произвольная область и функции $P$ и $Q$ непрерывны на $\overline{\Omega}$, тогда следующие условия эквивалентны:
 \begin{enumerate}
-	\item $\oint_\varGamma P(x,y)dx+Q(x,y)dy$, где $\varGamma$ --- произвольная замкнутая кусочно гладкая кривая, причем $\varGamma\subset\Omega$
+	\item $\oint_\varGamma P(x,y)dx+Q(x,y)dy=0$, где $\varGamma$ --- произвольная замкнутая кусочно гладкая кривая, причем $\varGamma\subset\Omega$
 	\item $z'=(x',y'),\, z'' = (x'' , y'')$ --- т. области $\Omega,\;\varGamma\subset\Omega$ -- кусочно гладкая кривая, соединяющая точки $z'$ и $z''$, то $\int_\varGamma Pdx+Qdy$ не зависит от кривой $\varGamma$, а только от т. $z'$ и $z''$.
 	\item Существует функция $w=f(x,y)$ такая, что $df=Pdx+Qdy$, при этом если $z',\,z''\in \Omega$ и $\varGamma\subset \Omega$ --- кусочно гладкая кривая, соединяющая точки $z'$ и $z''$, то \begin{equation}
 	\int_\varGamma Pdx+Qdy=f(z'')-f(z')

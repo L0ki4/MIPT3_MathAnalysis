@@ -1,0 +1,73 @@
+
+$ S = \{ \overline{r}=\overline{r}(u,v),\; (u,v) \in \Omega  \}\quad S = \{ x = \varphi(u,v),\; y=\psi(u,v),\; z =\chi(u,v),\;(u,v)\subset \overline{\Omega} \} $\\
+$u = u_0\quad F_{u_0}\subset \mathbb{E}^3: F_{u_{0}}=\{ \overline{r}=\overline{r}(u_0,v),\;(u_0,v)\subset\overline{\Omega} \}\\ $
+$ v = v_0\quad F_{v_0}\subset \mathbb{E}^3: F_{v_{0}}=\{ \overline{r}=\overline{r}(u,v_0),\;(u,v_0)\subset\overline{\Omega} \}$
+\\
+\textbf{Пример.} Рассмотрим в $ \mathbb{E}^3 $ сферу $ S = \{ x = \cos\varphi \cos \psi ,\;y=\sin\varphi\cos\psi,\; z = \sin\psi,\;\\ 0\leqslant \varphi \leqslant 2\pi,\; -\pi/2 \leqslant \psi \leqslant \pi/2 \}$. Тогда формула $ x^2+y^2+z^2=1 $
+
+\textbf{Пример.} Зададим параметрически кривую: \\$ y=0: x = \Phi(u),\; z =\Psi(u), \alpha \leqslant u \leqslant \beta,\;\;\varPhi(u)\hm{\geqslant}0 $\\
+$ S = \{ x=\varPhi(u)\cos v,\; y=\varPhi(u)\sin v,\; z =\Psi(u),\; \alpha \leqslant u \leqslant \beta,\; 0\leqslant v\leqslant 2\pi \} $\\
+$ S = \{ x=(a+a/2\cos u)\cos v,\; y = (a + a/2\cos u)\sin v,\; z = a/2\sin u  \}\; 0 \leqslant u \leqslant 2\pi,\; 0 \leqslant v \leqslant 2\pi $
+\paragraph{Определение.} Точка $ M \subset S: \overline{OM} = \overline{r}(u_1,v_1)=\overline{r}(u_2,v_2)  $ для различных точек $ (u_{1},v_{2}) $ и $ (u_{2},v_{2}) $ множества $ \overline{\Omega} $, называются кратными точками поверхности $ S $.
+\paragraph{Определение.} Поверхность $ S $, имеющая кратные точки, называется поверхностью с самопересечениями.
+\paragraph{Определение.} Если поверхность $ S $ ограничивает некоторое тело $ G \subset \mathbb{E}^3 $, т.е. $ \partial G = S $, по поверхности $ S $ называется замкнутой
+\subsection{Допустимые замены переменных.}
+$ F: \Omega \rightarrow \mathbb{E}^3,\; \overline{r}=\overline{r}(u,v) $ --- взаимооднозначное, непрерывно дифференцируемое, без особых точек\\
+$ G : \overline{\Omega^*} \rightarrow \mathbb{E}^3 \overline{\rho}=\overline{\rho}(u^{*},v^{*})$\\
+Эти отображения называются эквивалентными или задающими одну и ту же поверхность, если $ \exists H: \overline{\Omega^*}\rightarrow\overline{\Omega}: u=h^1(u^*,v^*),\; v = h^2(u^*,v^*) $ и оно обладает следующими свойствами.
+\begin{enumerate}[1)]
+	\item  Взаимооднозначность
+	\item Непрерывная дифференцируемость
+	\item $ \mathcal{J}_{(u,v)}=\frac{D(u,v)}{D(u^*,v^*)}\neq 0 $ в $ \overline{\Omega^*} $
+	\item $ \overline{\rho}(u^*,v^*) = \overline{r}(h^1(u^*,v^*),h^2(u^*,v^*) $ 
+\end{enumerate}
+Преобразование параметров осуществляющего переход от одного преобразования поверхности $ S$ к другому ему эквивалентному, называется допустимой заменой параметра.
+\begin{sentence}
+	Если $ S = \{ \overline{r}=\overline{r}(u,v),\; (u,v) \in \overline{\Omega} \} $ является простой гладкой поверхностью, то при допустимой замене параметра поверхность $ S = \{ \overline{\rho} = \overline{\rho}(u^*,v^*),\; (u^*,v^*) \hm{\in} \overline{\Omega^*}  \}$ остается простой гладкой поверхностью.
+\end{sentence} 
+$ [ \overline{\rho_{u^*}},\; \overline{\rho_{v^*}}]\neq0 $\\
+$ \overline{\rho_{u^*}} = h^1_{u^*}\overline{r_u}+h^2_{u^*}\overline{r_v},\; \overline{\rho_{v^*}}=h^1_{v^*}\overline{r_u}+h^2_{v^*}\overline{r_v} $\\
+$ [ \overline{\rho_{u^*}},\overline{\rho_{v^*}}  ] = (h^1_{u^*} h^2_{v^*} - h^1_{v^*} h^2_{u^*}  ) [\overline{r_u},\overline{r_v}]\neq 0 $
+\subsection{Касательная плоскость и нормаль к поверхности.}
+Рассмотрим $ \overline{r_0} = \overline{r}(u_0,v_0) $\\
+$ \varGamma = \{ \overline{r}=\overline{r}(u(t),v(t)),\; \alpha \leqslant t \leqslant \beta  \}  \subset S;\quad\overline{r_0} \in \varGamma$\\
+$ d\overline{r}= \overline{r_u}du + \overline{r_v}dv\quad du = u'(t)dt,\;dv = v'(t)dt $
+\paragraph{Определение.} Плоскость, проходящая через точку $ r_0 \in S$, в которой лежат все касательные к кривым $ \varGamma \subset S $, в точке $ \overline{r_0} $, называется касательной плоскостью, а т $ \overline{r_0} $ называется точкой касания. В Каждой точке $ \overline{r_0} $, которая не является особой существует и единственная касательная плоскость.\\  $ \overline{r}=(x,y,z),\;\overline{r_0}=(x_{0},y_0,z_0),\;x_0=\varphi(u_0,v_0),\;y_0=\psi(u_0,v_0),\;_0=\chi(u_0,v_0) \\ \overline{r_u}=(x_u,y_u,z_u)(u_0,v_0),\;\overline{r_v}=(x_v,y_v,z_v)(u_0,v_0) $\\[0.5em]
+$ ((\overline{r} - \overline{r_0}), \overline{r_u}, \overline{r_v}) \Leftrightarrow \begin{vmatrix} x-x_0 & y-y_0 & z-z_0\\
+x_u & y_u & z_u\\
+x_v & y_v & z_v\end{vmatrix}=0\quad z =f(x,y),(x,y)\in \overline{\Omega}$
+
+\textbf{Пример.} \\
+$ \begin{vmatrix}
+x-x_0 & y-y_0 & z-z_0\\ 1 & 0 & f_x \\ 0 & 1 & f_y
+\end{vmatrix}=0\quad f_x(x-x_0)+f_y(y-y_0)-(z-z_0)=0 $
+\paragraph{Определение.} Прямая, проходящая через точку $ \overline{r_0} \in S$(простой гладкой поверхности), перпендикулярно касательной плоскости в этой точке называется нормальной прямой.\\
+$ \dfrac{x-x_0}{A} = \dfrac{y-y_0}{B}= \dfrac{z-z_0}{C}\quad A= \begin{vmatrix}
+\psi_u & \chi_u\\ \psi_v & \chi_v
+\end{vmatrix} ,\; B =\begin{vmatrix}
+\chi_u & \varphi_u \\ \chi_v & \varphi_v
+\end{vmatrix},\; C = \begin{vmatrix}
+\varphi_u & \psi_u \\ \varphi_v & \psi_v
+\end{vmatrix}$\\
+$ \dfrac{x-x_0}{f_x} = \dfrac{y-y_0}{f_y}=\dfrac{z-z_0}{-1} $
+\paragraph{Определение.} Ненулевой вектор, параллельный нормальной прямой, проходящий через точку $ \overline{r_0}\in S $ касательной плоскости, называется вектором нормали к поверхности $ S$ в т. $ \overline{r_0} $
+\[ \overline{n}=\pm\dfrac{[\overline{r_u},\overline{r_v}]}{\abs{ [\overline{r_u},\overline{r_v}]}} \]
+Фиксируя $ + $ или $ - $ задается непрерывная векторная функция.
+\subsection{Двусторонние и односторонние поверхности. Ориентация поверхности.} 
+Рассмотрим поверхность $ S,\;$ выберем точку на этой поверхности $ A_0 \in S,\; $ выпустим из нее контур $ \varGamma_0 \in S $.\\
+Рассматриваемые случаи:
+\begin{enumerate}[I]
+	\item Как ушел так и пришел (прим. лента Мебиуса)
+	\item Ушел и пришел с обратным направлением 
+\end{enumerate} 
+\paragraph{Определение.} Если для любой точки $ A_0\in S $ при обходе любого контура $ \varGamma_0 \subset S,\; \varGamma_0\cap \delta S = \varnothing  $ с началом и концом в точке $ A_0 $ имеем место случай II, то поверхность $ S $ называется односторонней поверхностью. Такие поверхности рассматривать не будем.
+\paragraph{Определение.} Если для любой точки $ A_0\in S $ при обходе любого контура $ \varGamma_0 \subset S$ с началом и концом в точке $ A_0 $ имеем место случай I, то поверхность $ S $ называется двусторонней поверхностью.
+\begin{sentence}
+	Для двусторонней гладкой поверхности $ S $ с кусочно гладким краем $ \delta S $ задание направления нормали в одой точке определяет задание направления нормали во всех точках поверхности. 
+\end{sentence}
+\begin{proof}
+	$  \overline{n}=\pm\dfrac{[\overline{r_u},\overline{r_v}]}{\abs{ [\overline{r_u},\overline{r_v}]}},\;$ выберем две точки и нормаль в однйо из них: $ A_0,\; A_1,\ \overline{n_0},\;$\\ne$   \varGamma^1_{01}\rightarrow\overline{n_1},\; \varGamma^2_{01}\rightarrow\overline{n}_1^-,\; \varGamma = \varGamma^1_{01}\cup (\varGamma^2_{01})^- $ --- противоречие
+\end{proof}
+\paragraph{Определение.} Гладкая поверхность $ S $ называется ориентированной, если единичный вектор нормали $ \overline{n} $ задан на ней как непрерывная векторная функция.\\
+$ \cos \alpha = \dfrac{A}{\pm\sqrt{\Delta}},\; \cos \beta = \dfrac{B}{\pm\sqrt{\Delta}},\; \cos \gamma = \dfrac{C}{\pm\sqrt{\Delta}},\; \Delta = A^2 + B^2 + C^2 $\\[0.5em]
+$ z = f(x,y),\; \cos \alpha =\dfrac{-f_x}{\pm\sqrt{\Delta}},\; \cos \beta = \dfrac{-f_y}{\pm\sqrt{\Delta}},\; \cos \gamma = \dfrac{1}{\pm\sqrt{\Delta}},\; \Delta = 1 + f_x^2 =f_y^2 $	
